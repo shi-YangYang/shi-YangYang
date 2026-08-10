@@ -3,17 +3,14 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products)](https://git.io/typing-svg)
 
 > 全栈开发者 · 独立开发者 · 喜欢把一个想法从 0 到 1 做出来
-
-![Visitor](https://visitor-badge.laobi.icu/badge?page_id=shi-YangYang.shi-YangYang)
-
 ---
 
 ## 🧑💻 关于我
 
-- 🔭 正在做：个人作品集 + 博客网站（Next.js 16 · React 19 · Tailwind CSS 4）
-- 🌱 正在学：TypeScript / 系统设计 / 性能优化
-- 💬 问我：Web 开发、前端架构、产品设计
-- ⚡ 喜欢：写代码、喝咖啡、把 bug 改名为 feature
+- 🔭 正在做：小蓝书，智能体
+- 🌱 正在学：全栈开发 / 智能体应用
+- 💬 问我：全栈开发
+- ⚡ 喜欢：吃饭、睡觉、打豆豆
 
 ---
 
@@ -22,19 +19,19 @@
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 ---
 
 ## 📊 GitHub 数据
 
-![shi-YangYang's GitHub stats](https://github-readme-stats.vercel.app/api?username=shi-YangYang&show_icons=true&theme=green_nur&rank_icon=github)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=shi-YangYang&layout=compact&theme=green_nur)
+[![GitHub 总览](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
 
-[![shi-YangYang's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=shi-YangYang&theme=react-dark&bg_color=0d1117&color=34d399&line=10b981&point=22d3ee&area=true&hide_border=true)](https://github.com/shi-YangYang)
+[![Repos per language](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
+[![Most commit language](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
+[![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
+[![Productive time](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8)](https://github.com/shi-YangYang)
 
 ---
 
@@ -43,6 +40,8 @@
 | 项目 | 描述 | 链接 |
 |------|------|------|
 | **personal-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | [查看](https://github.com/shi-YangYang/personal-site) |
+| **plus-extractor** | plus直卡提链一条龙 | [查看](https://github.com/shi-YangYang/plus-extractor) |
+| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | [查看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
 | 更多项目即将上线… | | |
 
 ---
