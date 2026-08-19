@@ -35,14 +35,21 @@
 
 ---
 
-## 🚀 近期项目
+## 🚀 项目
 
-| 项目 | 描述 | 链接 |
-|------|------|------|
-| **personal-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | [查看](https://github.com/shi-YangYang/personal-site) |
-| **plus-extractor** | plus直卡提链一条龙 | [查看](https://github.com/shi-YangYang/plus-extractor) |
-| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | [查看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
-| 更多项目即将上线… | | |
+> 以下列表通过 GitHub API 自动抓取，保持与仓库同步。
+
+| 项目 | 描述 | 语言 | 链接 |
+|------|------|------|------|
+| **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查看](https://github.com/shi-YangYang/dsh-desktop) |
+| **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查看](https://github.com/shi-YangYang/personla-site) |
+| **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查看](https://github.com/shi-YangYang/plus-extractor) |
+| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | TypeScript | [查看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
+| **ai-interface-studio** | 面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | - | [查看](https://github.com/shi-YangYang/ai-interface-studio) |
+| **AI-Frontier-Radar** | 本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 | TypeScript | [查看](https://github.com/shi-YangYang/AI-Frontier-Radar) |
+| **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查看](https://github.com/shi-YangYang/Easy-OpenClaw) |
+| **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查看](https://github.com/shi-YangYang/Student-System) |
+| **gitskills** | Git 练习仓库 | - | [查看](https://github.com/shi-YangYang/gitskills) |
 
 ---
 
@@ -53,4 +60,4 @@
 
 ---
 
-> **开源声明**：我的个人站模板 [personal-site](https://github.com/shi-YangYang/personal-site) 可以放心 fork —— 真实个人信息只存在本地，不会提交。
+> **开源声明**：我的个人站模板 [personla-site](https://github.com/shi-YangYang/personla-site) 可以放心 fork —— 真实个人信息只存在本地，不会提交。
