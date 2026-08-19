@@ -22,18 +22,14 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
             dist/github-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to output branch
+      - name: Commit & Push
         run: |
-          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf /tmp/snake-dist
-          mv dist /tmp/snake-dist
-          git checkout --orphan output
-          git rm -rf . > /dev/null 2>&1 || true
-          mv /tmp/snake-dist dist
           git add -f dist
-          git commit -m "chore: update snake animation" || echo "No changes to commit"
-          git push -f origin output
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update snake animation"
+            git push
+          fi

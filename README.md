@@ -54,7 +54,11 @@
 
 ## 🐍 贪吃蛇
 
-![GitHub 贪吃蛇](https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/output/github-snake-dark.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/dist/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/dist/github-snake.svg" />
+  <img alt="GitHub 贪吃蛇" src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/dist/github-snake.svg" />
+</picture>
 
 ---
 
