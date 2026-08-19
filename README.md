@@ -3,6 +3,7 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products)](https://git.io/typing-svg)
 
 > 全栈开发者 · 独立开发者 · 喜欢把一个想法从 0 到 1 做出来
+
 ---
 
 ## 🧑💻 关于我
@@ -14,13 +15,25 @@
 
 ---
 
-## 🛠 技术栈
+## 🛠️ 技术栈
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+
+---
+
+## 🏔️ 3D 贡献图
+
+![3D 贡献图](https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-3d-contrib/profile-night-green.svg)
 
 ---
 
@@ -33,11 +46,19 @@
 [![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
 [![Productive time](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8)](https://github.com/shi-YangYang)
 
+[![Streak](https://streak-stats.demolab.com/?user=shi-YangYang&theme=github-dark-blue&hide_border=true&ring=34D399&fire=34D399)](https://github.com/shi-YangYang)
+
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=shi-YangYang&theme=github-dark&hide_border=true&bg_color=0d1117&color=34D399&line=34D399&point=ffffff&area=true)](https://github.com/shi-YangYang)
+
+---
+
+## 🐍 贪吃蛇
+
+![GitHub 贪吃蛇](https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/output/github-snake-dark.svg)
+
 ---
 
 ## 🚀 项目
-
-> 以下列表通过 GitHub API 自动抓取，保持与仓库同步。
 
 | 项目 | 描述 | 语言 | 链接 |
 |------|------|------|------|
