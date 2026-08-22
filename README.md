@@ -74,6 +74,7 @@
 
 | 项目 | 描述 | 语言 | 链接 |
 |------|------|------|------|
+| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | Python | [查看](https://github.com/shi-YangYang/jobpilot-agent) |
 | **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查看](https://github.com/shi-YangYang/dsh-desktop) |
 | **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查看](https://github.com/shi-YangYang/personla-site) |
 | **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查看](https://github.com/shi-YangYang/plus-extractor) |
