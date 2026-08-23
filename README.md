@@ -26,11 +26,15 @@
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
 **后端**
 
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Fastify](https://img.shields.io/badge/-Fastify-000000?style=flat-square&logo=fastify&logoColor=white)
+![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 
 **桌面应用**
 
@@ -41,12 +45,20 @@
 ![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+
+**AI / LLM**
+
+![DeepSeek](https://img.shields.io/badge/-DeepSeek-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
 
 **工具与部署**
 
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white)
+![pnpm](https://img.shields.io/badge/-pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
+![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 
 ---
@@ -72,18 +84,18 @@
 
 ## 🚀 项目
 
-| 项目 | 描述 | 语言 | 链接 |
+| 项目 | 描述 | 语言 | 链&nbsp;接 |
 |------|------|------|------|
-| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | Python | [查看](https://github.com/shi-YangYang/jobpilot-agent) |
-| **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查看](https://github.com/shi-YangYang/dsh-desktop) |
-| **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查看](https://github.com/shi-YangYang/personla-site) |
-| **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查看](https://github.com/shi-YangYang/plus-extractor) |
-| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | TypeScript | [查看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
-| **ai-interface-studio** | 面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | - | [查看](https://github.com/shi-YangYang/ai-interface-studio) |
-| **AI-Frontier-Radar** | 本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 | TypeScript | [查看](https://github.com/shi-YangYang/AI-Frontier-Radar) |
-| **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查看](https://github.com/shi-YangYang/Easy-OpenClaw) |
-| **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查看](https://github.com/shi-YangYang/Student-System) |
-| **gitskills** | Git 练习仓库 | - | [查看](https://github.com/shi-YangYang/gitskills) |
+| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | Python | [查&nbsp;看](https://github.com/shi-YangYang/jobpilot-agent) |
+| **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/dsh-desktop) |
+| **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/personla-site) |
+| **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/plus-extractor) |
+| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
+| **ai-interface-studio** | 面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | - | [查&nbsp;看](https://github.com/shi-YangYang/ai-interface-studio) |
+| **AI-Frontier-Radar** | 本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/AI-Frontier-Radar) |
+| **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查&nbsp;看](https://github.com/shi-YangYang/Easy-OpenClaw) |
+| **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查&nbsp;看](https://github.com/shi-YangYang/Student-System) |
+| **gitskills** | Git 练习仓库 | - | [查&nbsp;看](https://github.com/shi-YangYang/gitskills) |
 
 ---
 
