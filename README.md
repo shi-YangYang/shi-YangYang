@@ -47,10 +47,6 @@
 ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
 
-**AI / LLM**
-
-![DeepSeek](https://img.shields.io/badge/-DeepSeek-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
-
 **工具与部署**
 
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
@@ -102,8 +98,6 @@
 ## 📫 联系我
 
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/shi-YangYang)
-[![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:1600472625@qq.com)
-
----
-
-> **开源声明**：我的个人站模板 [personla-site](https://github.com/shi-YangYang/personla-site) 可以放心 fork —— 真实个人信息只存在本地，不会提交。
+[![个人网站](https://img.shields.io/badge/-个人网站-34D399?style=flat-square&logo=react&logoColor=white)](https://feng-qingyang.top)
+[![CSDN](https://img.shields.io/badge/-CSDN-CF000E?style=flat-square&logo=csdn&logoColor=white)](https://fengqingyang.blog.csdn.net)
+[![QQ](https://img.shields.io/badge/-QQ-12B7F5?style=flat-square&logo=tencentqq&logoColor=white)](https://wpa.qq.com/msgrd?v=3&uin=1600472625&site=qq&menu=yes)
