@@ -53,6 +53,10 @@
 ![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 ![Codex](https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=codex&logoColor=white)
 ![OpenClaw](https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square&logo=openclaw&logoColor=white)
+![Claude Code](https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![opencode](https://img.shields.io/badge/-opencode-000000?style=flat-square&logo=opencode&logoColor=white)
+![DeepSeek Harness](https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
+![Hermes](https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square&logo=hermes&logoColor=white)
 
 **工具与部署**
 
