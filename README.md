@@ -35,6 +35,7 @@
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Fastify](https://img.shields.io/badge/-Fastify-000000?style=flat-square&logo=fastify&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/-Uvicorn-499848?style=flat-square&logo=uvicorn&logoColor=white)
 
 **桌面应用**
 
@@ -67,14 +68,21 @@
 
 ## 📊 GitHub 数据
 
-[![GitHub 总览](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
+<p align="center">
+  <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark" alt="GitHub 总览" />
+</p>
 
-[![Repos per language](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
-[![Most commit language](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
-[![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark)](https://github.com/shi-YangYang)
-[![Productive time](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8)](https://github.com/shi-YangYang)
+<p align="center">
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark" alt="Repos per language" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark" alt="Most commit language" />
+</p>
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=shi-YangYang&theme=github-dark&hide_border=true&bg_color=0d1117&color=34D399&line=34D399&point=ffffff&area=true)](https://github.com/shi-YangYang)
+<p align="center">
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
+</p>
+
+<p align="center">
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=shi-YangYang&theme=github-dark&hide_border=true&bg_color=0d1117&color=34D399&line=34D399&point=ffffff&area=true" alt="Activity Graph" />
+</p>
 
 ---
 
@@ -82,6 +90,7 @@
 
 | 项目 | 描述 | 语言 | 链&nbsp;接 |
 |------|------|------|------|
+| **openlab** | 开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | Python | [查&nbsp;看](https://github.com/shi-YangYang/openlab) |
 | **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | Python | [查&nbsp;看](https://github.com/shi-YangYang/jobpilot-agent) |
 | **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/dsh-desktop) |
 | **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/personla-site) |
@@ -91,7 +100,6 @@
 | **AI-Frontier-Radar** | 本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/AI-Frontier-Radar) |
 | **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查&nbsp;看](https://github.com/shi-YangYang/Easy-OpenClaw) |
 | **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查&nbsp;看](https://github.com/shi-YangYang/Student-System) |
-| **gitskills** | Git 练习仓库 | - | [查&nbsp;看](https://github.com/shi-YangYang/gitskills) |
 
 ---
 
