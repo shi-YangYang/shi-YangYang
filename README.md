@@ -90,18 +90,16 @@
   <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
 </p>
 
-<p align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=shi-YangYang&theme=github-dark&hide_border=true&bg_color=0d1117&color=34D399&line=34D399&point=ffffff&area=true" alt="Activity Graph" />
-</p>
-
 ---
 
 ## 🚀 项目
 
 | 项目 | 描述 | 语言 | 链&nbsp;接 |
 |------|------|------|------|
+| **work-assistant-agent** | 企业 Agent | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/work-assistant-agent) |
+| **Multi-LLM** | 多 LLM 协作 | Python | [查&nbsp;看](https://github.com/shi-YangYang/Multi-LLM) |
 | **openlab** | 开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | Python | [查&nbsp;看](https://github.com/shi-YangYang/openlab) |
-| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | Python | [查&nbsp;看](https://github.com/shi-YangYang/jobpilot-agent) |
+| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/jobpilot-agent) |
 | **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/dsh-desktop) |
 | **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/personla-site) |
 | **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/plus-extractor) |
