@@ -31,53 +31,51 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,playwright&perline=11&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,playwright,npm,pnpm&perline=12&theme=dark" alt="技术栈" />
   </a>
 </div>
 
-**AI / Agent**
+<div align="center">
+  <strong>&nbsp;AI / Agent&nbsp;</strong>
+</div>
 
-![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
-![Codex](https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=openai&logoColor=white)
-![OpenClaw](https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square)
-![Claude Code](https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
-![opencode](https://img.shields.io/badge/-opencode-000000?style=flat-square)
-![DeepSeek Harness](https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
-![Hermes](https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square)
+<div align="center">
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/Codex-000000?style=for-the-badge&logo=openai&logoColor=white" alt="Codex" />
+  <img src="https://img.shields.io/badge/OpenClaw-6C5CE7?style=for-the-badge" alt="OpenClaw" />
+  <img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/opencode-000000?style=for-the-badge" alt="opencode" />
+  <img src="https://img.shields.io/badge/DeepSeek_Harness-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white" alt="DeepSeek Harness" />
+  <img src="https://img.shields.io/badge/Hermes-7C3AED?style=for-the-badge" alt="Hermes" />
+</div>
 
 ---
 
 ## 🚀 项目
 
-| 项目 | 描述 | 语言 | 链&nbsp;接 |
-|------|------|------|------|
-| **work-assistant-agent** | 企业 Agent | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/work-assistant-agent) |
-| **Multi-LLM** | 多 LLM 协作 | Python | [查&nbsp;看](https://github.com/shi-YangYang/Multi-LLM) |
-| **openlab** | 开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | Python | [查&nbsp;看](https://github.com/shi-YangYang/openlab) |
-| **jobpilot-agent** | 可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/jobpilot-agent) |
-| **dsh-desktop** | DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/dsh-desktop) |
-| **personla-site** | 中英双语个人站 + 博客，3D 特效 + SEO + Docker | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/personla-site) |
-| **plus-extractor** | plus 直卡提链一条龙 | JavaScript | [查&nbsp;看](https://github.com/shi-YangYang/plus-extractor) |
-| **LittleBlueBook-Web** | 小蓝书，专为西格玛男士打造 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/LittleBlueBook-Web) |
-| **ai-interface-studio** | 面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | - | [查&nbsp;看](https://github.com/shi-YangYang/ai-interface-studio) |
-| **AI-Frontier-Radar** | 本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 | TypeScript | [查&nbsp;看](https://github.com/shi-YangYang/AI-Frontier-Radar) |
-| **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查&nbsp;看](https://github.com/shi-YangYang/Easy-OpenClaw) |
-| **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查&nbsp;看](https://github.com/shi-YangYang/Student-System) |
+| &nbsp; | &nbsp; |
+|--------|--------|
+| **[🔬 openlab](https://github.com/shi-YangYang/openlab)** &nbsp;`Python`<br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | **[🧭 jobpilot-agent](https://github.com/shi-YangYang/jobpilot-agent)** &nbsp;`TypeScript`<br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 |
+| **[💼 work-assistant-agent](https://github.com/shi-YangYang/work-assistant-agent)** &nbsp;`TypeScript`<br>企业 Agent | **[🤝 Multi-LLM](https://github.com/shi-YangYang/Multi-LLM)** &nbsp;`Python`<br>多 LLM 协作 |
+| **[🖥️ dsh-desktop](https://github.com/shi-YangYang/dsh-desktop)** &nbsp;`JavaScript`<br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | **[🌐 personla-site](https://github.com/shi-YangYang/personla-site)** &nbsp;`TypeScript`<br>中英双语个人站 + 博客，3D 特效 + SEO + Docker |
+| **[🔗 plus-extractor](https://github.com/shi-YangYang/plus-extractor)** &nbsp;`JavaScript`<br>plus 直卡提链一条龙 | **[📘 LittleBlueBook-Web](https://github.com/shi-YangYang/LittleBlueBook-Web)** &nbsp;`TypeScript`<br>小蓝书，专为西格玛男士打造 |
+| **[🎨 ai-interface-studio](https://github.com/shi-YangYang/ai-interface-studio)**<br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | **[📡 AI-Frontier-Radar](https://github.com/shi-YangYang/AI-Frontier-Radar)** &nbsp;`TypeScript`<br>本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 |
+| **[⚙️ Easy-OpenClaw](https://github.com/shi-YangYang/Easy-OpenClaw)** &nbsp;`Vue`<br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | **[🎓 Student-System](https://github.com/shi-YangYang/Student-System)** &nbsp;`Python`<br>学生管理系统（详见 readme.txt） |
 
 ---
 
 ## 📊 GitHub 数据
 
 <div align="center">
-  <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark" alt="GitHub 总览" />
-</div>
-
-<div align="center">
   <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark" alt="Repos per language" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark" alt="Most commit language" />
 </div>
 
 <div align="center">
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark-blue&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
+</div>
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
 </div>
 
 ---
