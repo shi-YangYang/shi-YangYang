@@ -37,37 +37,17 @@
 
 **AI / Agent**
 
-<div align="center">
-  <img src="https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="LangChain" />
-  <img src="https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=codex&logoColor=white" alt="Codex" />
-  <img src="https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square&logo=openclaw&logoColor=white" alt="OpenClaw" />
-  <img src="https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Claude Code" />
-  <img src="https://img.shields.io/badge/-opencode-000000?style=flat-square&logo=opencode&logoColor=white" alt="opencode" />
-  <img src="https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white" alt="DeepSeek Harness" />
-  <img src="https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square&logo=hermes&logoColor=white" alt="Hermes" />
-</div>
+![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![Codex](https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=openai&logoColor=white)
+![OpenClaw](https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square)
+![Claude Code](https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![opencode](https://img.shields.io/badge/-opencode-000000?style=flat-square)
+![DeepSeek Harness](https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
+![Hermes](https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square)
 
 ---
 
-## 🚀 精选项目
-
-<div align="center">
-  <a href="https://github.com/shi-YangYang/openlab">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=openlab&theme=github_dark&hide_border=true" alt="openlab" />
-  </a>
-  <a href="https://github.com/shi-YangYang/jobpilot-agent">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=jobpilot-agent&theme=github_dark&hide_border=true" alt="jobpilot-agent" />
-  </a>
-  <a href="https://github.com/shi-YangYang/work-assistant-agent">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=work-assistant-agent&theme=github_dark&hide_border=true" alt="work-assistant-agent" />
-  </a>
-  <a href="https://github.com/shi-YangYang/Multi-LLM">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=Multi-LLM&theme=github_dark&hide_border=true" alt="Multi-LLM" />
-  </a>
-</div>
-
-<details>
-<summary><b>📦 全部项目</b>（点击展开）</summary>
+## 🚀 项目
 
 | 项目 | 描述 | 语言 | 链&nbsp;接 |
 |------|------|------|------|
@@ -84,20 +64,20 @@
 | **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查&nbsp;看](https://github.com/shi-YangYang/Easy-OpenClaw) |
 | **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查&nbsp;看](https://github.com/shi-YangYang/Student-System) |
 
-</details>
-
 ---
 
 ## 📊 GitHub 数据
 
 <div align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=shi-YangYang&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-  <img height="170" src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark-blue&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
+  <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark" alt="GitHub 总览" />
 </div>
 
 <div align="center">
-  <img width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shi-YangYang&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages" />
-  <img width="52%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark" alt="Repos per language" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark" alt="Most commit language" />
+</div>
+
+<div align="center">
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark-blue&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
 </div>
 
 ---
