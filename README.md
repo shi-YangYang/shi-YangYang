@@ -9,7 +9,7 @@
 <div align="center">
   <a href="https://github.com/shi-YangYang"><img src="https://komarev.com/ghpvc/?username=shi-YangYang&color=34d399&style=flat-square&label=visitors" alt="visitors" /></a>&nbsp;
   <a href="https://github.com/shi-YangYang?tab=followers"><img src="https://img.shields.io/github/followers/shi-YangYang?style=flat-square&color=34d399&label=Followers" alt="Followers" /></a>&nbsp;
-  <a href="https://github.com/shi-YangYang?tab=repositories"><img src="https://img.shields.io/github/repos/shi-YangYang?style=flat-square&color=34d399&label=Repos" alt="Repos" /></a>&nbsp;
+  <a href="https://github.com/shi-YangYang?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Fshi-YangYang&query=%24.public_repos&label=Repos&color=34d399&style=flat-square" alt="Repos" /></a>&nbsp;
   <img src="https://img.shields.io/badge/正在开发-OpenLab-34d399?style=flat-square" alt="正在开发" />
 </div>
 
