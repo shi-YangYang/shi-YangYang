@@ -3,17 +3,14 @@
 </div>
 
 <div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products" alt="Typing SVG" />
-  </a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products" alt="Typing SVG" /></a>
 </div>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=shi-YangYang&color=34d399&style=flat-square&label=%E8%AE%BF%E5%AE%A2" alt="访客计数" />
-  <a href="https://github.com/shi-YangYang?tab=followers">
-    <img src="https://img.shields.io/github/followers/shi-YangYang?style=flat-square&color=34d399&label=Followers" alt="Followers" />
-  </a>
-  <img src="https://img.shields.io/badge/%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91-OpenLab-34d399?style=flat-square" alt="正在开发" />
+  <a href="https://github.com/shi-YangYang"><img src="https://komarev.com/ghpvc/?username=shi-YangYang&color=34d399&style=flat-square&label=visitors" alt="visitors" /></a>&nbsp;
+  <a href="https://github.com/shi-YangYang?tab=followers"><img src="https://img.shields.io/github/followers/shi-YangYang?style=flat-square&color=34d399&label=Followers" alt="Followers" /></a>&nbsp;
+  <a href="https://github.com/shi-YangYang?tab=repositories"><img src="https://img.shields.io/github/repos/shi-YangYang?style=flat-square&color=34d399&label=Repos" alt="Repos" /></a>&nbsp;
+  <img src="https://img.shields.io/badge/正在开发-OpenLab-34d399?style=flat-square" alt="正在开发" />
 </div>
 
 ---
@@ -31,7 +28,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,playwright,npm,pnpm&perline=12&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,npm,pnpm&perline=12&theme=dark" alt="技术栈" />
   </a>
 </div>
 
