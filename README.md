@@ -1,98 +1,73 @@
-# Hi there, I'm shi-YangYang 👋
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&section=header&text=shi-YangYang&fontSize=45&fontColor=ffffff&animation=fadeIn&desc=Full-stack%20Developer%20%C2%B7%20%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E8%80%85%20%C2%B7%20%E4%BB%8E%200%20%E5%88%B0%201&descSize=18&descAlignY=64&color=0:0d1117,50:10b981,100:34d399" width="100%" />
+</div>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products)](https://git.io/typing-svg)
+<div align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products" alt="Typing SVG" />
+  </a>
+</div>
 
-> 全栈开发者 · 独立开发者 · 喜欢把一个想法从 0 到 1 做出来
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=shi-YangYang&color=34d399&style=flat-square&label=%E8%AE%BF%E5%AE%A2" alt="访客计数" />
+  <a href="https://github.com/shi-YangYang?tab=followers">
+    <img src="https://img.shields.io/github/followers/shi-YangYang?style=flat-square&color=34d399&label=Followers" alt="Followers" />
+  </a>
+  <img src="https://img.shields.io/badge/%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91-OpenLab-34d399?style=flat-square" alt="正在开发" />
+</div>
 
 ---
 
-## 🧑💻 关于我
+## 🧑‍💻 关于我
 
-- 🔭 正在做：OpenLab
-- 🌱 正在学：全栈开发 / Agent应用
-- 💬 技能：全栈开发 / Agent应用
+- 🔭 正在做：**OpenLab** — 开源科研 Agent 框架
+- 🌱 正在学：全栈开发 / Agent 应用
+- 💬 技能：全栈开发 / Agent 应用
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
 
 ---
 
 ## 🛠️ 技术栈
 
-**前端**
-
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
-![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-
-**后端**
-
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Fastify](https://img.shields.io/badge/-Fastify-000000?style=flat-square&logo=fastify&logoColor=white)
-![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/-Uvicorn-499848?style=flat-square&logo=uvicorn&logoColor=white)
-
-**桌面应用**
-
-![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
-
-**数据库**
-
-![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,playwright&perline=11&theme=dark" alt="技术栈" />
+  </a>
+</div>
 
 **AI / Agent**
 
-![LangChain](https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
-![Codex](https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=codex&logoColor=white)
-![OpenClaw](https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square&logo=openclaw&logoColor=white)
-![Claude Code](https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)
-![opencode](https://img.shields.io/badge/-opencode-000000?style=flat-square&logo=opencode&logoColor=white)
-![DeepSeek Harness](https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)
-![Hermes](https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square&logo=hermes&logoColor=white)
-
-**工具与部署**
-
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
-![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white)
-![pnpm](https://img.shields.io/badge/-pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Nginx](https://img.shields.io/badge/-Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
-![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+<div align="center">
+  <img src="https://img.shields.io/badge/-LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/-Codex-000000?style=flat-square&logo=codex&logoColor=white" alt="Codex" />
+  <img src="https://img.shields.io/badge/-OpenClaw-6C5CE7?style=flat-square&logo=openclaw&logoColor=white" alt="OpenClaw" />
+  <img src="https://img.shields.io/badge/-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/-opencode-000000?style=flat-square&logo=opencode&logoColor=white" alt="opencode" />
+  <img src="https://img.shields.io/badge/-DeepSeek_Harness-4D6BFE?style=flat-square&logo=deepseek&logoColor=white" alt="DeepSeek Harness" />
+  <img src="https://img.shields.io/badge/-Hermes-7C3AED?style=flat-square&logo=hermes&logoColor=white" alt="Hermes" />
+</div>
 
 ---
 
-## 🏔️ 3D 贡献图
+## 🚀 精选项目
 
-![3D 贡献图](https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-3d-contrib/profile-night-green.svg)
+<div align="center">
+  <a href="https://github.com/shi-YangYang/openlab">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=openlab&theme=github_dark&hide_border=true" alt="openlab" />
+  </a>
+  <a href="https://github.com/shi-YangYang/jobpilot-agent">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=jobpilot-agent&theme=github_dark&hide_border=true" alt="jobpilot-agent" />
+  </a>
+  <a href="https://github.com/shi-YangYang/work-assistant-agent">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=work-assistant-agent&theme=github_dark&hide_border=true" alt="work-assistant-agent" />
+  </a>
+  <a href="https://github.com/shi-YangYang/Multi-LLM">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=shi-YangYang&repo=Multi-LLM&theme=github_dark&hide_border=true" alt="Multi-LLM" />
+  </a>
+</div>
 
----
-
-## 📊 GitHub 数据
-
-<p align="center">
-  <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shi-YangYang&theme=github_dark" alt="GitHub 总览" />
-</p>
-
-<p align="center">
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark" alt="Repos per language" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark" alt="Most commit language" />
-</p>
-
-<p align="center">
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
-</p>
-
----
-
-## 🚀 项目
+<details>
+<summary><b>📦 全部项目</b>（点击展开）</summary>
 
 | 项目 | 描述 | 语言 | 链&nbsp;接 |
 |------|------|------|------|
@@ -109,6 +84,42 @@
 | **Easy-OpenClaw** | 基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | Vue | [查&nbsp;看](https://github.com/shi-YangYang/Easy-OpenClaw) |
 | **Student-System** | 学生管理系统（详见 readme.txt） | Python | [查&nbsp;看](https://github.com/shi-YangYang/Student-System) |
 
+</details>
+
+---
+
+## 📊 GitHub 数据
+
+<div align="center">
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=shi-YangYang&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+  <img height="170" src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark-blue&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
+</div>
+
+<div align="center">
+  <img width="47%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shi-YangYang&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages" />
+  <img width="52%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
+</div>
+
+---
+
+## 🏔️ 3D 贡献图
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-3d-contrib/profile-night-green.svg" alt="3D 贡献图" width="100%" />
+</div>
+
+---
+
+## 🐍 贪吃蛇
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/output/github-snake.svg" />
+    <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/output/github-snake.svg" alt="贪吃蛇动画" width="100%" />
+  </picture>
+</div>
+
 ---
 
 ## 一些随笔
@@ -116,9 +127,17 @@
 - 一万年太久，只争朝夕
 - 坚持阶级斗争
 
+---
+
 ## 📫 联系我
 
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/shi-YangYang)
-[![个人网站](https://img.shields.io/badge/-个人网站-34D399?style=flat-square&logo=react&logoColor=white)](https://feng-qingyang.top)
-[![CSDN](https://img.shields.io/badge/-CSDN-CF000E?style=flat-square&logo=csdn&logoColor=white)](https://fengqingyang.blog.csdn.net)
-[![QQ](https://img.shields.io/badge/-QQ-12B7F5?style=flat-square&logo=tencentqq&logoColor=white)](https://wpa.qq.com/msgrd?v=3&uin=1600472625&site=qq&menu=yes)
+<div align="center">
+  <a href="https://github.com/shi-YangYang"><img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://feng-qingyang.top"><img src="https://img.shields.io/badge/-个人网站-34D399?style=for-the-badge&logo=react&logoColor=white" alt="个人网站" /></a>
+  <a href="https://fengqingyang.blog.csdn.net"><img src="https://img.shields.io/badge/-CSDN-CF000E?style=for-the-badge&logo=csdn&logoColor=white" alt="CSDN" /></a>
+  <a href="https://wpa.qq.com/msgrd?v=3&uin=1600472625&site=qq&menu=yes"><img src="https://img.shields.io/badge/-QQ-12B7F5?style=for-the-badge&logo=tencentqq&logoColor=white" alt="QQ" /></a>
+</div>
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:34d399,50:10b981,100:0d1117" width="100%" />
+</div>
