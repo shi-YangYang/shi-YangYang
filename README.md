@@ -3,23 +3,23 @@
 </div>
 
 <div align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;Love+building+products" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;%E6%AD%A3%E5%9C%A8%E5%81%9A%E4%BC%81%E4%B8%9A%E7%BA%A7+AI+Agent;Love+building+products" alt="Typing SVG" /></a>
 </div>
 
 <div align="center">
   <a href="https://github.com/shi-YangYang"><img src="https://komarev.com/ghpvc/?username=shi-YangYang&color=34d399&style=flat-square&label=visitors" alt="visitors" /></a>&nbsp;
   <a href="https://github.com/shi-YangYang?tab=followers"><img src="https://img.shields.io/github/followers/shi-YangYang?style=flat-square&color=34d399&label=Followers" alt="Followers" /></a>&nbsp;
   <a href="https://github.com/shi-YangYang?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2Fshi-YangYang&query=%24.public_repos&label=Repos&color=34d399&style=flat-square" alt="Repos" /></a>&nbsp;
-  <img src="https://img.shields.io/badge/正在开发-OpenLab-34d399?style=flat-square" alt="正在开发" />
+  <img src="https://img.shields.io/badge/正在做-work--assistant--agent-34d399?style=flat-square" alt="正在做" />
 </div>
 
 ---
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**OpenLab** — 开源科研 Agent 框架
-- 🌱 正在学：全栈开发 / Agent 应用
-- 💬 技能：全栈开发 / Agent 应用
+- 🔭 正在做：**work-assistant-agent** — 企业级 AI Agent
+- 🌱 正在学：全栈工程化 · Agent 应用
+- 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
 
 ---
