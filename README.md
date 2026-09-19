@@ -28,7 +28,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,python,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind&perline=12&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,python,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind,sqlite,postgres,mysql,docker,nginx&perline=9&theme=dark" alt="技术栈" />
   </a>
 </div>
 
