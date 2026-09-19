@@ -28,7 +28,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,html,css,react,nextjs,vue,vite,tailwind,nodejs,python,fastapi,electron,sqlite,postgres,mysql,prisma,docker,nginx,git,githubactions,npm,pnpm&perline=12&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,python,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind&perline=12&theme=dark" alt="技术栈" />
   </a>
 </div>
 
@@ -52,11 +52,12 @@
 
 | &nbsp; | &nbsp; |
 |--------|--------|
-| **[🔬 openlab](https://github.com/shi-YangYang/openlab)** &nbsp;`Python`<br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | **[🧭 jobpilot-agent](https://github.com/shi-YangYang/jobpilot-agent)** &nbsp;`TypeScript`<br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 |
-| **[💼 work-assistant-agent](https://github.com/shi-YangYang/work-assistant-agent)** &nbsp;`TypeScript`<br>企业 Agent | **[🤝 Multi-LLM](https://github.com/shi-YangYang/Multi-LLM)** &nbsp;`Python`<br>多 LLM 协作 |
-| **[🖥️ dsh-desktop](https://github.com/shi-YangYang/dsh-desktop)** &nbsp;`JavaScript`<br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 | **[🌐 personla-site](https://github.com/shi-YangYang/personla-site)** &nbsp;`TypeScript`<br>中英双语个人站 + 博客，3D 特效 + SEO + Docker |
-| **[🔗 plus-extractor](https://github.com/shi-YangYang/plus-extractor)** &nbsp;`JavaScript`<br>plus 直卡提链一条龙 | **[📘 LittleBlueBook-Web](https://github.com/shi-YangYang/LittleBlueBook-Web)** &nbsp;`TypeScript`<br>小蓝书，专为西格玛男士打造 |
-| **[🎨 ai-interface-studio](https://github.com/shi-YangYang/ai-interface-studio)**<br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 | **[📡 AI-Frontier-Radar](https://github.com/shi-YangYang/AI-Frontier-Radar)** &nbsp;`TypeScript`<br>本地优先的 AI 前沿信息雷达：轮询 X 上相关账号 → 存 SQLite → 推送飞书 webhook，带本地 Web 看板 |
+| **[💼 work-assistant-agent](https://github.com/shi-YangYang/work-assistant-agent)** &nbsp;`Python`<br>让 AI Agent 融入团队日常工作：任务管理、日报周报、会议录音转写与智能纪要 | **[🛠️ utility-site](https://github.com/shi-YangYang/utility-site)** &nbsp;`JavaScript`<br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用 |
+| **[🗣️ opencode-speak-freely](https://github.com/shi-YangYang/opencode-speak-freely)** &nbsp;`Python`<br>降低 OpenCode 拒答率：代码上下文脚手架、多阶段工作流、自动拒答修复 | **[📡 AI-Frontier-Radar](https://github.com/shi-YangYang/AI-Frontier-Radar)** &nbsp;`TypeScript`<br>本地优先的 AI 资讯雷达：监控 X 账号与官方博客/RSS → 存 SQLite → 推送飞书/企微 |
+| **[🔬 openlab](https://github.com/shi-YangYang/openlab)** &nbsp;`Python`<br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化 | **[🤝 Multi-LLM](https://github.com/shi-YangYang/Multi-LLM)** &nbsp;`TypeScript`<br>多 LLM 协作 |
+| **[🧭 jobpilot-agent](https://github.com/shi-YangYang/jobpilot-agent)** &nbsp;`JavaScript`<br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备 | **[🖥️ dsh-desktop](https://github.com/shi-YangYang/dsh-desktop)** &nbsp;`JavaScript`<br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行 |
+| **[🌐 personla-site](https://github.com/shi-YangYang/personla-site)** &nbsp;`JavaScript`<br>个人网站 | **[🔗 plus-extractor](https://github.com/shi-YangYang/plus-extractor)** &nbsp;`JavaScript`<br>plus直卡提链一条龙 |
+| **[📘 LittleBlueBook-Web](https://github.com/shi-YangYang/LittleBlueBook-Web)** &nbsp;`Vue`<br>小蓝书，专为西格玛男士打造 | **[🎨 ai-interface-studio](https://github.com/shi-YangYang/ai-interface-studio)** &nbsp;`Python`<br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览 |
 | **[⚙️ Easy-OpenClaw](https://github.com/shi-YangYang/Easy-OpenClaw)** &nbsp;`Vue`<br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行 | **[🎓 Student-System](https://github.com/shi-YangYang/Student-System)** &nbsp;`Python`<br>学生管理系统（详见 readme.txt） |
 
 ---
