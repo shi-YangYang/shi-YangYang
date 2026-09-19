@@ -17,7 +17,7 @@
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**work-assistant-agent** — 让 AI Agent 融入团队日常工作（任务管理 / 日报周报 / 会议纪要）
+- 🔭 正在做：**work-assistant-agent** — 让 AI Agent 融入团队日常工作
 - 🌱 正在学：全栈工程化 · Agent 应用
 - 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
