@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;%E6%AD%A3%E5%9C%A8%E5%81%9A%E4%BC%81%E4%B8%9A%E7%BA%A7+AI+Agent;Love+building+products" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;%E6%AD%A3%E5%9C%A8%E5%81%9A%E5%9B%A2%E9%98%9F%E5%8A%9E%E5%85%AC+AI+Agent;Love+building+products" alt="Typing SVG" /></a>
 </div>
 
 <div align="center">
@@ -17,7 +17,7 @@
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**work-assistant-agent** — 企业级 AI Agent
+- 🔭 正在做：**work-assistant-agent** — 让 AI Agent 融入团队日常工作（任务管理 / 日报周报 / 会议纪要）
 - 🌱 正在学：全栈工程化 · Agent 应用
 - 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
