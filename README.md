@@ -28,12 +28,8 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,python,rust,kotlin,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind,sqlite,postgres,mysql,docker,nginx&perline=10&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,py,rust,kotlin,html,css,react,nextjs,vue,tailwind,nodejs,fastapi,electron,tauri,vite,pnpm,prisma,postgres,sqlite,mysql,redis,docker,nginx,githubactions,git,github,linux,pytorch,opencv&perline=15&theme=dark" alt="技术栈" />
   </a>
-</div>
-
-<div align="center">
-  <strong>&nbsp;AI / Agent&nbsp;</strong>
 </div>
 
 <div align="center">
@@ -68,20 +64,24 @@
 <td width="50%">🔬 <a href="https://github.com/shi-YangYang/openlab"><strong>openlab</strong></a> <code>Python</code><br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化</td>
 </tr>
 <tr>
+<td width="50%">🧠 <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于完整 MaleCNS 果蝇神经连接组的研究平台：脉冲神经网络训练、神经活动可视化与具身控制实验</td>
 <td width="50%">🤝 <a href="https://github.com/shi-YangYang/Multi-LLM"><strong>Multi-LLM</strong></a> <code>Python</code><br>把思考成本摊成模板：强模型写规格，弱模型并行执行——3 个任务仅耗 290 tokens</td>
+</tr>
+<tr>
 <td width="50%">🧭 <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备</td>
-</tr>
-<tr>
 <td width="50%">🖥️ <a href="https://github.com/shi-YangYang/dsh-desktop"><strong>dsh-desktop</strong></a> <code>JavaScript</code><br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行</td>
+</tr>
+<tr>
 <td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
-</tr>
-<tr>
 <td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
-<td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
 </tr>
 <tr>
+<td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
 <td width="50%">⚙️ <a href="https://github.com/shi-YangYang/Easy-OpenClaw"><strong>Easy-OpenClaw</strong></a> <code>Vue</code><br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行</td>
+</tr>
+<tr>
 <td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
+<td width="50%"></td>
 </tr>
 </table>
 
