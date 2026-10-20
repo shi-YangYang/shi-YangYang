@@ -43,13 +43,13 @@ def get(url, headers=None, retries=2, auth=False, token=None):
     return None
 
 
-def graphql(query, variables):
+def graphql(query, variables, token=None):
     body = json.dumps({"query": query, "variables": variables}).encode()
     req = urllib.request.Request(
         f"{API}/graphql",
         data=body,
         headers={
-            "Authorization": f"Bearer {USER_TOKEN}",
+            "Authorization": f"Bearer {token or USER_TOKEN}",
             "Content-Type": "application/json",
             "User-Agent": UA,
         },
@@ -478,6 +478,18 @@ def private_check():
             "to": "2026-10-21T00:00:00Z",
         })
         out["contributions"] = data
+        try:
+            out["contributions_gh_token"] = graphql(
+                q,
+                {
+                    "login": USER,
+                    "from": "2025-10-21T00:00:00Z",
+                    "to": "2026-10-21T00:00:00Z",
+                },
+                token=TOKEN,
+            )
+        except Exception as e2:
+            out["contributions_gh_error"] = str(e2)
     except Exception as e:
         out["contributions_error"] = str(e)
 
