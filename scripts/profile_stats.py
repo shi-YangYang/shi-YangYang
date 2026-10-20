@@ -435,6 +435,40 @@ def private_check():
                     det["commits_error"] = str(e)[:60]
                 details.append(det)
             out["private_repo_details"] = details
+            names = [repo["full_name"] for repo in data]
+            if names:
+                scope = " ".join(f"repo:{n}" for n in names)
+                try:
+                    q = urllib.parse.quote(f"author:{USER} {scope}", safe="")
+                    req3 = urllib.request.Request(
+                        f"{API}/search/commits?q={q}&per_page=1", headers=hdr
+                    )
+                    with urllib.request.urlopen(req3, timeout=20) as r3:
+                        out["private_scope_commits"] = json.load(r3).get("total_count")
+                except Exception as e:
+                    out["private_scope_commits_error"] = str(e)[:80]
+                try:
+                    q = urllib.parse.quote(
+                        f"author:{USER} {scope} type:pr", safe=""
+                    )
+                    req4 = urllib.request.Request(
+                        f"{API}/search/issues?q={q}&per_page=1", headers=hdr
+                    )
+                    with urllib.request.urlopen(req4, timeout=20) as r4:
+                        out["private_scope_prs"] = json.load(r4).get("total_count")
+                except Exception as e:
+                    out["private_scope_prs_error"] = str(e)[:80]
+                try:
+                    q = urllib.parse.quote(
+                        f"author:{USER} {scope} type:issue", safe=""
+                    )
+                    req5 = urllib.request.Request(
+                        f"{API}/search/issues?q={q}&per_page=1", headers=hdr
+                    )
+                    with urllib.request.urlopen(req5, timeout=20) as r5:
+                        out["private_scope_issues"] = json.load(r5).get("total_count")
+                except Exception as e:
+                    out["private_scope_issues_error"] = str(e)[:80]
     except Exception as e:
         out["private_repos_error"] = str(e)
     try:
