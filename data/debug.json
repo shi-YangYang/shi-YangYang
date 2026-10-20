@@ -1,0 +1,33 @@
+{
+ "has_user_token": true,
+ "has_gh_token": true,
+ "login": "shi-YangYang",
+ "scopes": null,
+ "search_pr_token": 120,
+ "graphql": {
+  "data": {
+   "repository": null
+  },
+  "errors": [
+   {
+    "type": "FORBIDDEN",
+    "path": [
+     "repository",
+     "stargazers"
+    ],
+    "extensions": {
+     "saml_failure": false,
+     "ip_allow_list_failure": false
+    },
+    "locations": [
+     {
+      "line": 4,
+      "column": 17
+     }
+    ],
+    "message": "Resource not accessible by personal access token"
+   }
+  ]
+ },
+ "search_pr_anon": 120
+}
