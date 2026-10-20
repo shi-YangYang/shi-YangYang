@@ -90,13 +90,13 @@
 ## 📊 GitHub 数据
 
 <div align="center">
-  <a href="https://yhype.me"><img src="https://img.shields.io/badge/Ÿ_HŸPE-访客·粉丝·仓库流量看板-34d399?style=for-the-badge" alt="Ÿ HŸPE" /></a>
+  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/github-metrics.svg" alt="GitHub Metrics" width="100%" />
 </div>
 
-> 访客、粉丝增减、star 与仓库流量的历史曲线都收在 [Ÿ HŸPE](https://yhype.me) 私有看板里（GitHub 官方流量只保留 14 天）。
+📈 访客与粉丝历史曲线：[Ÿ HŸPE 看板](https://yhype.me)（登录可见）
 
 <!--
-Ÿ HŸPE 隐身访客像素：登录 yhype.me → 添加隐身像素 → 把下面这行取消注释并替换为你的像素 URL
+Ÿ HŸPE 隐身访客像素：登录 yhype.me 后把下面这行替换为你的像素 URL 并取消注释
 <img src="YOUR_YHYPE_PIXEL_URL" width="1" height="1" alt="" />
 -->
 
