@@ -90,7 +90,7 @@
 ## 📊 GitHub 数据
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-stats.svg" alt="访问统计" width="100%" />
+  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-stats.svg" alt="GitHub 增长" width="100%" />
 </div>
 
 <!--
