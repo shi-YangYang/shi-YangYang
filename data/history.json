@@ -7,6 +7,7 @@
  },
  "meta": {
   "star_try": "2026-10-20T16",
+  "stars_filled": true,
   "user_token": true
  },
  "points": {
@@ -15,84 +16,84 @@
    "issues": 1,
    "prs": 0,
    "repos": 1,
-   "stars": null
+   "stars": 1
   },
   "2025-12-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 1,
-   "stars": null
+   "stars": 1
   },
   "2026-01-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 1,
-   "stars": null
+   "stars": 1
   },
   "2026-02-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 1,
-   "stars": null
+   "stars": 1
   },
   "2026-03-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 1,
-   "stars": null
+   "stars": 1
   },
   "2026-04-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 2,
-   "stars": null
+   "stars": 1
   },
   "2026-05-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 2,
-   "stars": null
+   "stars": 1
   },
   "2026-06-01": {
    "commits": 0,
    "issues": 1,
    "prs": 0,
    "repos": 2,
-   "stars": null
+   "stars": 1
   },
   "2026-07-01": {
    "commits": 1,
    "issues": 1,
    "prs": 0,
    "repos": 4,
-   "stars": null
+   "stars": 1
   },
   "2026-08-01": {
    "commits": 14,
    "issues": 1,
    "prs": 2,
    "repos": 5,
-   "stars": null
+   "stars": 2
   },
   "2026-09-01": {
    "commits": 171,
    "issues": 1,
    "prs": 2,
    "repos": 11,
-   "stars": null
+   "stars": 97
   },
   "2026-10-01": {
    "commits": 602,
    "issues": 1,
    "prs": 78,
    "repos": 15,
-   "stars": null
+   "stars": 114
   },
   "2026-10-20": {
    "commits": 1048,
