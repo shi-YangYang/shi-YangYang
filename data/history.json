@@ -7,6 +7,7 @@
  },
  "meta": {
   "private_counts": true,
+  "private_repos": 1,
   "star_try": "2026-10-20T16",
   "stars_filled": true,
   "user_token": true
