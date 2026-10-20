@@ -6,7 +6,8 @@
   }
  },
  "meta": {
-  "star_try": "2026-10-20T15"
+  "star_try": "2026-10-20T15",
+  "user_token": true
  },
  "points": {
   "2025-11-01": {
