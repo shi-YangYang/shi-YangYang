@@ -77,7 +77,7 @@ def month_points(months=12):
 def search_count(query, kind):
     url = f"{API}/search/{kind}?q={urllib.parse.quote(query, safe='')}&per_page=1"
     data = get(url, token=USER_TOKEN or None)
-    time.sleep(7)
+    time.sleep(2.5 if USER_TOKEN else 7)
     return (data or {}).get("total_count", 0)
 
 

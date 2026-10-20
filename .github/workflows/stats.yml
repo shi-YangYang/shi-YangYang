@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STAR_TOKEN: ${{ secrets.STAR_TOKEN }}
-        run: python3 scripts/profile_stats.py
+        run: python3 -u scripts/profile_stats.py
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
