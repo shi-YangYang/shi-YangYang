@@ -342,6 +342,23 @@ def write_debug():
         except Exception as e:
             info["search_pr_token_error"] = str(e)
         try:
+            info["search_commits_token"] = search_count(
+                f"author:{USER}", "commits", pace=False
+            )
+        except Exception as e:
+            info["search_commits_token_error"] = str(e)
+        try:
+            rr = get(
+                f"{API}/repos/{USER}/plus-extractor/stargazers?per_page=1",
+                {"User-Agent": UA, "Accept": "application/vnd.github.star+json"},
+                token=USER_TOKEN,
+            )
+            info["stargazers_rest_ok"] = isinstance(rr, list)
+        except urllib.error.HTTPError as e:
+            info["stargazers_rest_error"] = f"{e.code} {e.read()[:200].decode('utf-8', 'ignore')}"
+        except Exception as e:
+            info["stargazers_rest_error"] = str(e)
+        try:
             q = """
             query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name) {
@@ -359,6 +376,10 @@ def write_debug():
         info["search_pr_anon"] = search_count(f"author:{USER} type:pr", "issues", pace=False)
     except Exception as e:
         info["search_pr_anon_error"] = str(e)
+    try:
+        info["search_commits_anon"] = search_count(f"author:{USER}", "commits", pace=False)
+    except Exception as e:
+        info["search_commits_anon_error"] = str(e)
     os.makedirs("data", exist_ok=True)
     with open("data/debug.json", "w", encoding="utf-8") as f:
         json.dump(info, f, ensure_ascii=False, indent=1)
@@ -379,9 +400,12 @@ def main():
     values = history.setdefault("points", {})
     info = write_debug()
 
-    tok_pr = info.get("search_pr_token")
-    anon_pr = info.get("search_pr_anon")
-    has_private = isinstance(tok_pr, int) and isinstance(anon_pr, int) and tok_pr > anon_pr
+    def _greater(key):
+        a = info.get(f"search_{key}_token")
+        b = info.get(f"search_{key}_anon")
+        return isinstance(a, int) and isinstance(b, int) and a > b
+
+    has_private = _greater("pr") or _greater("commits")
     if has_private and not history.get("meta", {}).get("private"):
         values.clear()
         history.setdefault("meta", {})["private"] = True
