@@ -90,16 +90,15 @@
 ## 📊 GitHub 数据
 
 <div align="center">
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=shi-YangYang&theme=github_dark" alt="Repos per language" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=shi-YangYang&theme=github_dark" alt="Most commit language" />
+  <a href="https://yhype.me"><img src="https://img.shields.io/badge/Ÿ_HŸPE-访客·粉丝·仓库流量看板-34d399?style=for-the-badge" alt="Ÿ HŸPE" /></a>
 </div>
 
-<div align="center">
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=shi-YangYang&theme=github_dark" alt="Stats" /><img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=shi-YangYang&theme=github_dark&utcOffset=8" alt="Productive time" />
-</div>
+> 访客、粉丝增减、star 与仓库流量的历史曲线都收在 [Ÿ HŸPE](https://yhype.me) 私有看板里（GitHub 官方流量只保留 14 天）。
 
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
-</div>
+<!--
+Ÿ HŸPE 隐身访客像素：登录 yhype.me → 添加隐身像素 → 把下面这行取消注释并替换为你的像素 URL
+<img src="YOUR_YHYPE_PIXEL_URL" width="1" height="1" alt="" />
+-->
 
 ---
 
