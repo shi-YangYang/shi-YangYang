@@ -4,6 +4,8 @@
  "login": "shi-YangYang",
  "scopes": null,
  "search_pr_token": 120,
+ "search_commits_token": 1082,
+ "stargazers_rest_error": "403 {\"message\":\"Resource not accessible by personal access token\",\"documentation_url\":\"https://docs.github.com/rest/activity/starring#list-stargazers\",\"status\":\"403\"}",
  "graphql": {
   "data": {
    "repository": null
@@ -29,5 +31,6 @@
    }
   ]
  },
- "search_pr_anon": 120
+ "search_pr_anon": 120,
+ "search_commits_anon": 1083
 }
