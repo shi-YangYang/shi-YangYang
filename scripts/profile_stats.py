@@ -1,7 +1,7 @@
 import datetime
 import json
-import math
 import os
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -41,19 +41,20 @@ def get(url, headers=None, retries=2, auth=False):
     return None
 
 
-def get_text(url, headers=None, retries=2):
-    req = urllib.request.Request(url, headers=headers or {"User-Agent": UA})
-    for attempt in range(retries + 1):
-        try:
-            with urllib.request.urlopen(req, timeout=30) as r:
-                return r.read().decode("utf-8", "ignore")
-        except urllib.error.HTTPError as e:
-            if e.code in (403, 429) and attempt < retries:
-                print("rate limited, sleeping 60s")
-                time.sleep(60)
-                continue
-            raise
-    return ""
+def graphql(query, variables):
+    body = json.dumps({"query": query, "variables": variables}).encode()
+    req = urllib.request.Request(
+        f"{API}/graphql",
+        data=body,
+        headers={
+            "Authorization": f"Bearer {TOKEN}",
+            "Content-Type": "application/json",
+            "User-Agent": UA,
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
 
 
 def month_points(months=12):
@@ -82,30 +83,17 @@ def fetch_repos():
     repos = []
     page = 1
     while True:
-        data = get(f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner", auth=True)
+        data = get(
+            f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner",
+            auth=True,
+        )
         if not data:
             break
         repos.extend(data)
         if len(data) < 100:
             break
         page += 1
-    return repos
-
-
-def graphql(url, query, variables):
-    body = json.dumps({"query": query, "variables": variables}).encode()
-    req = urllib.request.Request(
-        url,
-        data=body,
-        headers={
-            "Authorization": f"Bearer {TOKEN}",
-            "Content-Type": "application/json",
-            "User-Agent": UA,
-        },
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    return [r for r in repos if not r.get("fork")]
 
 
 def fetch_star_dates_graphql(repos):
@@ -129,15 +117,17 @@ def fetch_star_dates_graphql(repos):
         while True:
             try:
                 data = graphql(
-                    f"{API}/graphql", q, {"owner": USER, "name": repo["name"], "cursor": cursor}
+                    q, {"owner": USER, "name": repo["name"], "cursor": cursor}
                 )
-                st = (((data or {}).get("data") or {}).get("repository") or {}).get("stargazers") or {}
+                st = (
+                    ((data or {}).get("data") or {}).get("repository") or {}
+                ).get("stargazers") or {}
             except Exception as e:
                 print("graphql failed:", repo["name"], e)
                 return []
-            for e in st.get("edges", []):
-                if e.get("starredAt"):
-                    dates.append(e["starredAt"][:10])
+            for edge in st.get("edges", []):
+                if edge.get("starredAt"):
+                    dates.append(edge["starredAt"][:10])
             pi = st.get("pageInfo") or {}
             if not pi.get("hasNextPage"):
                 break
@@ -145,7 +135,7 @@ def fetch_star_dates_graphql(repos):
     return dates
 
 
-def fetch_star_dates(repos):
+def fetch_star_dates_rest(repos):
     dates = []
     for repo in repos:
         if not repo.get("stargazers_count"):
@@ -164,7 +154,7 @@ def fetch_star_dates(repos):
                 )
             except Exception as e:
                 print("stargazers failed:", repo["name"], e)
-                break
+                return []
             if not data:
                 break
             for s in data:
@@ -176,45 +166,57 @@ def fetch_star_dates(repos):
     return dates
 
 
-def collect(points):
-    data = {}
+def collect(points, values, hist):
+    today = datetime.date.today().isoformat()
+    fresh = {}
+
     try:
         repos = fetch_repos()
     except Exception as e:
         print("repos failed:", e)
-        return data
+        return fresh
 
-    star_dates = fetch_star_dates_graphql(repos)
-    if not star_dates:
-        star_dates = fetch_star_dates(repos)
+    star_dates = hist.get("star_dates") or []
+    if not star_dates and hist.get("meta", {}).get("star_try") != today:
+        star_dates = fetch_star_dates_graphql(repos) or fetch_star_dates_rest(repos)
+        hist.setdefault("meta", {})["star_try"] = today
+        if star_dates:
+            hist["star_dates"] = star_dates
     star_total = sum(r.get("stargazers_count", 0) for r in repos)
-    repo_dates = [r["created_at"][:10] for r in repos if not r.get("fork")]
+    repo_dates = [r["created_at"][:10] for r in repos]
 
     for d in points:
         iso = d.isoformat()
-        try:
-            prs = search_count(f"author:{USER} type:pr created:<{iso}", "issues")
-            issues = search_count(f"author:{USER} type:issue created:<{iso}", "issues")
-            commits = search_count(f"author:{USER} author-date:<{iso}", "commits")
-        except Exception as e:
-            print("search failed for", iso, e)
+        if iso != today and iso in values:
             continue
+        st = None
         if star_dates:
-            stars = sum(1 for x in star_dates if x < iso)
-        elif iso == points[-1].isoformat():
-            stars = star_total
+            st = sum(1 for x in star_dates if x < iso)
+        elif iso == today:
+            st = star_total
         else:
-            stars = None
-        data[iso] = {
-            "stars": stars,
-            "commits": commits,
-            "prs": prs,
-            "issues": issues,
+            st = values.get(iso, {}).get("stars")
+
+        entry = {
+            "stars": st,
             "repos": sum(1 for x in repo_dates if x < iso),
         }
-        print(iso, data[iso])
+        try:
+            entry["prs"] = search_count(f"author:{USER} type:pr created:<{iso}", "issues")
+            entry["issues"] = search_count(
+                f"author:{USER} type:issue created:<{iso}", "issues"
+            )
+            entry["commits"] = search_count(
+                f"author:{USER} author-date:<{iso}", "commits"
+            )
+        except Exception as e:
+            print("search failed for", iso, e)
+            if iso in values:
+                entry.update({k: v for k, v in values[iso].items() if k not in entry})
+        fresh[iso] = entry
+        print(iso, entry)
 
-    return data
+    return fresh
 
 
 def fmt(n):
@@ -267,7 +269,7 @@ def render(points, values):
             f'<text x="{L}" y="{y0 + 34}" fill="{color}" font-size="20" font-weight="700" '
             f'font-family="ui-monospace, SFMono-Regular, Menlo, monospace">{fmt(cur)}</text>'
             f'<text x="{L + 76}" y="{y0 + 34}" fill="#6e7681" font-size="10">'
-            f'{delta_label}</text>'
+            f"{delta_label}</text>"
             f'<path d="{area}" fill="{color}" fill-opacity="0.12"/>'
             + (
                 f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="2" '
@@ -283,7 +285,7 @@ def render(points, values):
 
     xlabels = (
         f'<text x="{sx0}" y="{top + 5 * row_h + 8}" fill="#6e7681" font-size="10">'
-        f'{points[0][5:]}</text>'
+        f"{points[0][5:]}</text>"
         f'<text x="{sx1}" y="{top + 5 * row_h + 8}" fill="#6e7681" font-size="10" '
         f'text-anchor="end">{points[-1][5:]}</text>'
     )
@@ -293,7 +295,7 @@ def render(points, values):
   <text x="{L}" y="40" fill="#e6edf3" font-size="20" font-weight="700"
         font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">GitHub 增长</text>
   <text x="{L}" y="62" fill="#6e7681" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 12 个月 · 累计值 · 每月更新</text>
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 12 个月 · 累计值 · 每小时同步</text>
   {''.join(rows)}
   {xlabels}
 </svg>
@@ -303,7 +305,7 @@ def render(points, values):
 def main():
     points = [d.isoformat() for d in month_points(12)]
 
-    history = {"points": {}}
+    history = {"points": {}, "meta": {}}
     if os.path.exists(HISTORY):
         try:
             with open(HISTORY, encoding="utf-8") as f:
@@ -312,7 +314,9 @@ def main():
             pass
     values = history.setdefault("points", {})
 
-    fresh = collect([datetime.date.fromisoformat(p) for p in points])
+    fresh = collect(
+        [datetime.date.fromisoformat(p) for p in points], values, history
+    )
     if fresh:
         values.update(fresh)
         os.makedirs("data", exist_ok=True)
