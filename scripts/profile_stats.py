@@ -390,6 +390,61 @@ def write_debug():
     return info
 
 
+def private_check():
+    out = {}
+    if not USER_TOKEN:
+        return out
+    hdr = {"Authorization": f"Bearer {USER_TOKEN}", "User-Agent": UA}
+    try:
+        req = urllib.request.Request(f"{API}/user", headers=hdr)
+        with urllib.request.urlopen(req, timeout=20) as r:
+            me = json.load(r)
+        out["user_type"] = me.get("type")
+        out["public_repos"] = me.get("public_repos")
+        out["total_private_repos"] = me.get("total_private_repos")
+        out["owned_private_repos"] = me.get("owned_private_repos")
+    except Exception as e:
+        out["user_error"] = str(e)
+    try:
+        req = urllib.request.Request(
+            f"{API}/user/repos?visibility=private&per_page=100&affiliation=owner,collaborator,organization_member",
+            headers=hdr,
+        )
+        with urllib.request.urlopen(req, timeout=20) as r:
+            data = json.load(r)
+            out["private_repos_visible"] = len(data)
+            link = r.headers.get("Link") or ""
+            out["private_repos_has_more"] = 'rel="next"' in link
+    except Exception as e:
+        out["private_repos_error"] = str(e)
+    try:
+        req = urllib.request.Request(f"{API}/user/orgs?per_page=100", headers=hdr)
+        with urllib.request.urlopen(req, timeout=20) as r:
+            orgs = json.load(r)
+        out["org_count"] = len(orgs)
+        statuses = []
+        for org in orgs:
+            try:
+                req2 = urllib.request.Request(
+                    f"{API}/orgs/{org['login']}/repos?type=private&per_page=1",
+                    headers=hdr,
+                )
+                with urllib.request.urlopen(req2, timeout=20) as r2:
+                    org_repos = json.load(r2)
+                    statuses.append({"status": 200, "has_private": len(org_repos) > 0})
+            except urllib.error.HTTPError as e:
+                statuses.append({"status": e.code})
+            except Exception:
+                statuses.append({"status": 0})
+        out["orgs"] = statuses
+    except Exception as e:
+        out["orgs_error"] = str(e)
+    with open("data/private-check.json", "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=1)
+    print("private check:", out)
+    return out
+
+
 def main():
     points = [d.isoformat() for d in month_points(12)]
 
@@ -402,6 +457,7 @@ def main():
             pass
     values = history.setdefault("points", {})
     info = write_debug()
+    private_check()
 
     def _greater(key):
         a = info.get(f"search_{key}_token")
