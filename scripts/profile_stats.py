@@ -336,7 +336,13 @@ def main():
             pass
     values = history.setdefault("points", {})
 
-    private_names = [r["full_name"] for r in fetch_private_repos()]
+    try:
+        private_list = fetch_private_repos()
+        private_names = [r["full_name"] for r in private_list]
+        history.setdefault("meta", {})["private_repos"] = len(private_names)
+    except Exception as e:
+        private_names = []
+        history.setdefault("meta", {})["private_repos_error"] = str(e)[:120]
     if private_names and not history.get("meta", {}).get("private_counts"):
         values.clear()
         history.setdefault("meta", {})["private_counts"] = True
