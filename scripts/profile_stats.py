@@ -1,7 +1,6 @@
 import datetime
 import json
 import os
-import re
 import time
 import urllib.error
 import urllib.parse
@@ -24,11 +23,10 @@ SERIES = [
 ]
 
 
-def get(url, headers=None, retries=2, auth=False, token=None):
+def get(url, headers=None, retries=2, token=None):
     hdrs = dict(headers or {"User-Agent": UA})
-    use = token or (TOKEN if auth else "")
-    if use:
-        hdrs["Authorization"] = f"Bearer {use}"
+    if token:
+        hdrs["Authorization"] = f"Bearer {token}"
     req = urllib.request.Request(url, headers=hdrs)
     for attempt in range(retries + 1):
         try:
@@ -86,30 +84,29 @@ def fetch_repos():
     repos = []
     page = 1
     while True:
-        if USER_TOKEN:
-            url = (
-                f"{API}/user/repos?per_page=100&page={page}"
-                "&affiliation=owner&visibility=all"
-            )
-            data = get(url, token=USER_TOKEN)
-        else:
-            url = f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner"
-            data = get(url, auth=True)
+        url = f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner"
+        data = get(url, token=USER_TOKEN or TOKEN)
         if not data:
             break
         repos.extend(data)
         if len(data) < 100:
             break
         page += 1
-    seen = set()
-    out = []
-    for r in repos:
-        key = r.get("full_name") or r.get("name")
-        if r.get("fork") or key in seen:
-            continue
-        seen.add(key)
-        out.append(r)
-    return out
+    return [r for r in repos if not r.get("fork")]
+
+
+def fetch_private_repos():
+    if not USER_TOKEN:
+        return []
+    try:
+        data = get(
+            f"{API}/user/repos?per_page=100&affiliation=owner&visibility=private",
+            token=USER_TOKEN,
+        )
+        return [r for r in (data or []) if not r.get("fork")]
+    except Exception as e:
+        print("private repos failed:", e)
+        return []
 
 
 def fetch_star_dates_graphql(repos):
@@ -132,12 +129,10 @@ def fetch_star_dates_graphql(repos):
         cursor = None
         while True:
             try:
-                data = graphql(
-                    q, {"owner": USER, "name": repo["name"], "cursor": cursor}
-                )
-                st = (
-                    ((data or {}).get("data") or {}).get("repository") or {}
-                ).get("stargazers") or {}
+                data = graphql(q, {"owner": USER, "name": repo["name"], "cursor": cursor})
+                st = (((data or {}).get("data") or {}).get("repository") or {}).get(
+                    "stargazers"
+                ) or {}
             except Exception as e:
                 print("graphql failed:", repo["name"], e)
                 return []
@@ -160,13 +155,9 @@ def fetch_star_dates_rest(repos):
         while True:
             try:
                 data = get(
-                    f"{API}/repos/{USER}/{repo['name']}/stargazers"
-                    f"?per_page=100&page={page}",
-                    {
-                        "User-Agent": UA,
-                        "Accept": "application/vnd.github.star+json",
-                    },
-                    token=USER_TOKEN or TOKEN,
+                    f"{API}/repos/{USER}/{repo['name']}/stargazers?per_page=100&page={page}",
+                    {"User-Agent": UA, "Accept": "application/vnd.github.star+json"},
+                    token=USER_TOKEN,
                 )
             except Exception as e:
                 print("stargazers failed:", repo["name"], e)
@@ -182,9 +173,10 @@ def fetch_star_dates_rest(repos):
     return dates
 
 
-def collect(points, values, hist):
+def collect(points, values, hist, private_names):
     today = datetime.date.today().isoformat()
     fresh = {}
+    scope = " ".join(f"repo:{n}" for n in private_names)
 
     try:
         repos = fetch_repos()
@@ -193,12 +185,13 @@ def collect(points, values, hist):
         return fresh
 
     star_dates = hist.get("star_dates") or []
-    star_try_key = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H")
-    if not star_dates and hist.get("meta", {}).get("star_try") != star_try_key:
+    try_key = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H")
+    if not star_dates and hist.get("meta", {}).get("star_try") != try_key:
         star_dates = fetch_star_dates_graphql(repos) or fetch_star_dates_rest(repos)
-        hist.setdefault("meta", {})["star_try"] = star_try_key
+        hist.setdefault("meta", {})["star_try"] = try_key
         if star_dates:
             hist["star_dates"] = star_dates
+
     star_total = sum(r.get("stargazers_count", 0) for r in repos)
     repo_dates = [r["created_at"][:10] for r in repos if not r.get("private")]
 
@@ -206,30 +199,40 @@ def collect(points, values, hist):
         iso = d.isoformat()
         if iso != today and iso in values:
             continue
-        st = None
+
         if star_dates:
-            st = sum(1 for x in star_dates if x < iso)
+            stars = sum(1 for x in star_dates if x < iso)
         elif iso == today:
-            st = star_total
+            stars = star_total
         else:
-            st = values.get(iso, {}).get("stars")
+            stars = values.get(iso, {}).get("stars")
 
         entry = {
-            "stars": st,
+            "stars": stars,
             "repos": sum(1 for x in repo_dates if x < iso),
         }
         try:
-            entry["prs"] = search_count(f"author:{USER} type:pr created:<{iso}", "issues")
-            entry["issues"] = search_count(
-                f"author:{USER} type:issue created:<{iso}", "issues"
-            )
-            entry["commits"] = search_count(
-                f"author:{USER} author-date:<{iso}", "commits"
-            )
+            commits = search_count(f"author:{USER} author-date:<{iso}", "commits")
+            prs = search_count(f"author:{USER} type:pr created:<{iso}", "issues")
+            issues = search_count(f"author:{USER} type:issue created:<{iso}", "issues")
+            if scope:
+                commits += search_count(
+                    f"author:{USER} {scope} author-date:<{iso}", "commits"
+                )
+                prs += search_count(
+                    f"author:{USER} {scope} type:pr created:<{iso}", "issues"
+                )
+                issues += search_count(
+                    f"author:{USER} {scope} type:issue created:<{iso}", "issues"
+                )
+            entry["commits"] = commits
+            entry["prs"] = prs
+            entry["issues"] = issues
         except Exception as e:
             print("search failed for", iso, e)
             if iso in values:
-                entry.update({k: v for k, v in values[iso].items() if k not in entry})
+                for k, v in values[iso].items():
+                    entry.setdefault(k, v)
         fresh[iso] = entry
         print(iso, entry)
 
@@ -270,9 +273,11 @@ def render(points, values):
         pts = " ".join(f"{px(j):.1f},{py(v):.1f}" for j, v in seen)
         area = ""
         if seen:
-            area = f"M {px(seen[0][0]):.1f},{y0 + sh} L " + " L ".join(
-                f"{px(j):.1f},{py(v):.1f}" for j, v in seen
-            ) + f" L {px(seen[-1][0]):.1f},{y0 + sh} Z"
+            area = (
+                f"M {px(seen[0][0]):.1f},{y0 + sh} L "
+                + " L ".join(f"{px(j):.1f},{py(v):.1f}" for j, v in seen)
+                + f" L {px(seen[-1][0]):.1f},{y0 + sh} Z"
+            )
 
         delta_label = (
             f"12 个月 +{fmt(delta)}"
@@ -312,225 +317,11 @@ def render(points, values):
   <text x="{L}" y="40" fill="#e6edf3" font-size="20" font-weight="700"
         font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">GitHub 增长</text>
   <text x="{L}" y="62" fill="#6e7681" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 12 个月 · 累计值 · 每小时同步</text>
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 12 个月 · 累计值（含私有仓库） · 每小时同步</text>
   {''.join(rows)}
   {xlabels}
 </svg>
 '''
-
-
-def write_debug():
-    info = {"has_user_token": bool(USER_TOKEN), "has_gh_token": bool(TOKEN)}
-    if USER_TOKEN:
-        try:
-            req = urllib.request.Request(
-                f"{API}/user",
-                headers={
-                    "Authorization": f"Bearer {USER_TOKEN}",
-                    "User-Agent": UA,
-                },
-            )
-            with urllib.request.urlopen(req, timeout=20) as r:
-                me = json.load(r)
-                info["login"] = me.get("login")
-                info["scopes"] = r.headers.get("x-oauth-scopes")
-                info["total_private_repos"] = me.get("total_private_repos")
-                info["public_repos"] = me.get("public_repos")
-        except Exception as e:
-            info["user_error"] = str(e)
-        try:
-            info["search_pr_token"] = search_count(
-                f"author:{USER} type:pr", "issues", pace=False
-            )
-        except Exception as e:
-            info["search_pr_token_error"] = str(e)
-        try:
-            info["search_commits_token"] = search_count(
-                f"author:{USER}", "commits", pace=False
-            )
-        except Exception as e:
-            info["search_commits_token_error"] = str(e)
-        try:
-            rr = get(
-                f"{API}/repos/{USER}/plus-extractor/stargazers?per_page=1",
-                {"User-Agent": UA, "Accept": "application/vnd.github.star+json"},
-                token=USER_TOKEN,
-            )
-            info["stargazers_rest_ok"] = isinstance(rr, list)
-        except urllib.error.HTTPError as e:
-            info["stargazers_rest_error"] = f"{e.code} {e.read()[:200].decode('utf-8', 'ignore')}"
-        except Exception as e:
-            info["stargazers_rest_error"] = str(e)
-        try:
-            q = """
-            query($owner:String!, $name:String!) {
-              repository(owner:$owner, name:$name) {
-                stargazers(first:1) { totalCount }
-              }
-            }
-            """
-            data = graphql(q, {"owner": USER, "name": "plus-extractor"})
-            info["graphql"] = data
-        except urllib.error.HTTPError as e:
-            info["graphql_error"] = f"{e.code} {e.read()[:300].decode('utf-8', 'ignore')}"
-        except Exception as e:
-            info["graphql_error"] = str(e)
-    try:
-        info["search_pr_anon"] = search_count(f"author:{USER} type:pr", "issues", pace=False)
-    except Exception as e:
-        info["search_pr_anon_error"] = str(e)
-    try:
-        info["search_commits_anon"] = search_count(f"author:{USER}", "commits", pace=False)
-    except Exception as e:
-        info["search_commits_anon_error"] = str(e)
-    os.makedirs("data", exist_ok=True)
-    with open("data/debug.json", "w", encoding="utf-8") as f:
-        json.dump(info, f, ensure_ascii=False, indent=1)
-    print("debug:", info)
-    return info
-
-
-def private_check():
-    out = {}
-    if not USER_TOKEN:
-        return out
-    hdr = {"Authorization": f"Bearer {USER_TOKEN}", "User-Agent": UA}
-    try:
-        req = urllib.request.Request(f"{API}/user", headers=hdr)
-        with urllib.request.urlopen(req, timeout=20) as r:
-            me = json.load(r)
-        out["user_type"] = me.get("type")
-        out["public_repos"] = me.get("public_repos")
-        out["total_private_repos"] = me.get("total_private_repos")
-        out["owned_private_repos"] = me.get("owned_private_repos")
-    except Exception as e:
-        out["user_error"] = str(e)
-    try:
-        req = urllib.request.Request(
-            f"{API}/user/repos?visibility=private&per_page=100&affiliation=owner,collaborator,organization_member",
-            headers=hdr,
-        )
-        with urllib.request.urlopen(req, timeout=20) as r:
-            data = json.load(r)
-            out["private_repos_visible"] = len(data)
-            link = r.headers.get("Link") or ""
-            out["private_repos_has_more"] = 'rel="next"' in link
-            details = []
-            for repo in data:
-                det = {
-                    "fork": bool(repo.get("fork")),
-                    "empty": not repo.get("size"),
-                    "pushed": (repo.get("pushed_at") or "")[:7],
-                    "default_branch": repo.get("default_branch"),
-                }
-                try:
-                    q = urllib.parse.quote(
-                        f"repo:{repo['full_name']} author:{USER}", safe=""
-                    )
-                    url = f"{API}/search/commits?q={q}&per_page=1"
-                    req2 = urllib.request.Request(url, headers=hdr)
-                    with urllib.request.urlopen(req2, timeout=20) as r2:
-                        det["my_commits"] = json.load(r2).get("total_count")
-                except Exception as e:
-                    det["commits_error"] = str(e)[:60]
-                details.append(det)
-            out["private_repo_details"] = details
-            names = [repo["full_name"] for repo in data]
-            if names:
-                scope = " ".join(f"repo:{n}" for n in names)
-                try:
-                    q = urllib.parse.quote(f"author:{USER} {scope}", safe="")
-                    req3 = urllib.request.Request(
-                        f"{API}/search/commits?q={q}&per_page=1", headers=hdr
-                    )
-                    with urllib.request.urlopen(req3, timeout=20) as r3:
-                        out["private_scope_commits"] = json.load(r3).get("total_count")
-                except Exception as e:
-                    out["private_scope_commits_error"] = str(e)[:80]
-                try:
-                    q = urllib.parse.quote(
-                        f"author:{USER} {scope} type:pr", safe=""
-                    )
-                    req4 = urllib.request.Request(
-                        f"{API}/search/issues?q={q}&per_page=1", headers=hdr
-                    )
-                    with urllib.request.urlopen(req4, timeout=20) as r4:
-                        out["private_scope_prs"] = json.load(r4).get("total_count")
-                except Exception as e:
-                    out["private_scope_prs_error"] = str(e)[:80]
-                try:
-                    q = urllib.parse.quote(
-                        f"author:{USER} {scope} type:issue", safe=""
-                    )
-                    req5 = urllib.request.Request(
-                        f"{API}/search/issues?q={q}&per_page=1", headers=hdr
-                    )
-                    with urllib.request.urlopen(req5, timeout=20) as r5:
-                        out["private_scope_issues"] = json.load(r5).get("total_count")
-                except Exception as e:
-                    out["private_scope_issues_error"] = str(e)[:80]
-    except Exception as e:
-        out["private_repos_error"] = str(e)
-    try:
-        req = urllib.request.Request(f"{API}/user/orgs?per_page=100", headers=hdr)
-        with urllib.request.urlopen(req, timeout=20) as r:
-            orgs = json.load(r)
-        out["org_count"] = len(orgs)
-        statuses = []
-        for org in orgs:
-            try:
-                req2 = urllib.request.Request(
-                    f"{API}/orgs/{org['login']}/repos?type=private&per_page=1",
-                    headers=hdr,
-                )
-                with urllib.request.urlopen(req2, timeout=20) as r2:
-                    org_repos = json.load(r2)
-                    statuses.append({"status": 200, "has_private": len(org_repos) > 0})
-            except urllib.error.HTTPError as e:
-                statuses.append({"status": e.code})
-            except Exception:
-                statuses.append({"status": 0})
-        out["orgs"] = statuses
-    except Exception as e:
-        out["orgs_error"] = str(e)
-    try:
-        q = """
-        query($login:String!, $from:DateTime!, $to:DateTime!) {
-          user(login:$login) {
-            contributionsCollection(from:$from, to:$to) {
-              totalCommitContributions
-              totalPullRequestContributions
-              totalIssueContributions
-              restrictedContributionsCount
-            }
-          }
-        }
-        """
-        data = graphql(q, {
-            "login": USER,
-            "from": "2025-10-21T00:00:00Z",
-            "to": "2026-10-21T00:00:00Z",
-        })
-        out["contributions"] = data
-        try:
-            out["contributions_gh_token"] = graphql(
-                q,
-                {
-                    "login": USER,
-                    "from": "2025-10-21T00:00:00Z",
-                    "to": "2026-10-21T00:00:00Z",
-                },
-                token=TOKEN,
-            )
-        except Exception as e2:
-            out["contributions_gh_error"] = str(e2)
-    except Exception as e:
-        out["contributions_error"] = str(e)
-
-    with open("data/private-check.json", "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=1)
-    print("private check:", out)
-    return out
 
 
 def main():
@@ -544,27 +335,25 @@ def main():
         except Exception:
             pass
     values = history.setdefault("points", {})
-    info = write_debug()
-    private_check()
 
-    def _greater(key):
-        a = info.get(f"search_{key}_token")
-        b = info.get(f"search_{key}_anon")
-        return isinstance(a, int) and isinstance(b, int) and a > b
-
-    has_private = _greater("pr") or _greater("commits")
-    if has_private and not history.get("meta", {}).get("private"):
+    private_names = [r["full_name"] for r in fetch_private_repos()]
+    if private_names and not history.get("meta", {}).get("private_counts"):
         values.clear()
-        history.setdefault("meta", {})["private"] = True
+        history.setdefault("meta", {})["private_counts"] = True
 
     fresh = collect(
-        [datetime.date.fromisoformat(p) for p in points], values, history
+        [datetime.date.fromisoformat(p) for p in points],
+        values,
+        history,
+        private_names,
     )
+
     if history.get("star_dates") and not history.get("meta", {}).get("stars_filled"):
         for pk, pv in values.items():
             pv["stars"] = sum(1 for x in history["star_dates"] if x < pk)
         history.setdefault("meta", {})["stars_filled"] = True
-        fresh = {k: v for k, v in values.items()}
+        for k, v in values.items():
+            fresh[k] = v
 
     if fresh:
         values.update(fresh)
