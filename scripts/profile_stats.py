@@ -74,10 +74,11 @@ def month_points(months=12):
     return points
 
 
-def search_count(query, kind):
+def search_count(query, kind, pace=True):
     url = f"{API}/search/{kind}?q={urllib.parse.quote(query, safe='')}&per_page=1"
     data = get(url, token=USER_TOKEN or None)
-    time.sleep(2.5 if USER_TOKEN else 7)
+    if pace:
+        time.sleep(2.5 if USER_TOKEN else 7)
     return (data or {}).get("total_count", 0)
 
 
@@ -318,6 +319,52 @@ def render(points, values):
 '''
 
 
+def write_debug():
+    info = {"has_user_token": bool(USER_TOKEN), "has_gh_token": bool(TOKEN)}
+    if USER_TOKEN:
+        try:
+            req = urllib.request.Request(
+                f"{API}/user",
+                headers={
+                    "Authorization": f"Bearer {USER_TOKEN}",
+                    "User-Agent": UA,
+                },
+            )
+            with urllib.request.urlopen(req, timeout=20) as r:
+                info["login"] = json.load(r).get("login")
+                info["scopes"] = r.headers.get("x-oauth-scopes")
+        except Exception as e:
+            info["user_error"] = str(e)
+        try:
+            info["search_pr_token"] = search_count(
+                f"author:{USER} type:pr", "issues", pace=False
+            )
+        except Exception as e:
+            info["search_pr_token_error"] = str(e)
+        try:
+            q = """
+            query($owner:String!, $name:String!) {
+              repository(owner:$owner, name:$name) {
+                stargazers(first:1) { totalCount }
+              }
+            }
+            """
+            data = graphql(q, {"owner": USER, "name": "plus-extractor"})
+            info["graphql"] = data
+        except urllib.error.HTTPError as e:
+            info["graphql_error"] = f"{e.code} {e.read()[:300].decode('utf-8', 'ignore')}"
+        except Exception as e:
+            info["graphql_error"] = str(e)
+    try:
+        info["search_pr_anon"] = search_count(f"author:{USER} type:pr", "issues", pace=False)
+    except Exception as e:
+        info["search_pr_anon_error"] = str(e)
+    os.makedirs("data", exist_ok=True)
+    with open("data/debug.json", "w", encoding="utf-8") as f:
+        json.dump(info, f, ensure_ascii=False, indent=1)
+    print("debug:", info)
+
+
 def main():
     points = [d.isoformat() for d in month_points(12)]
 
@@ -329,6 +376,7 @@ def main():
         except Exception:
             pass
     values = history.setdefault("points", {})
+    write_debug()
 
     if USER_TOKEN and not history.get("meta", {}).get("user_token"):
         values.clear()
