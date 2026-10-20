@@ -34,5 +34,17 @@
     }
    }
   }
+ },
+ "contributions_gh_token": {
+  "data": {
+   "user": {
+    "contributionsCollection": {
+     "totalCommitContributions": 1005,
+     "totalPullRequestContributions": 120,
+     "totalIssueContributions": 0,
+     "restrictedContributionsCount": 69
+    }
+   }
+  }
  }
 }
