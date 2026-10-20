@@ -331,8 +331,11 @@ def write_debug():
                 },
             )
             with urllib.request.urlopen(req, timeout=20) as r:
-                info["login"] = json.load(r).get("login")
+                me = json.load(r)
+                info["login"] = me.get("login")
                 info["scopes"] = r.headers.get("x-oauth-scopes")
+                info["total_private_repos"] = me.get("total_private_repos")
+                info["public_repos"] = me.get("public_repos")
         except Exception as e:
             info["user_error"] = str(e)
         try:
@@ -413,6 +416,12 @@ def main():
     fresh = collect(
         [datetime.date.fromisoformat(p) for p in points], values, history
     )
+    if history.get("star_dates") and not history.get("meta", {}).get("stars_filled"):
+        for pk, pv in values.items():
+            pv["stars"] = sum(1 for x in history["star_dates"] if x < pk)
+        history.setdefault("meta", {})["stars_filled"] = True
+        fresh = {k: v for k, v in values.items()}
+
     if fresh:
         values.update(fresh)
         os.makedirs("data", exist_ok=True)
