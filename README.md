@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;%E6%AD%A3%E5%9C%A8%E5%81%9A%E5%9B%A2%E9%98%9F%E5%8A%9E%E5%85%AC+AI+Agent;Love+building+products" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=34D399&center=true&width=460&lines=Full-stack+Developer;Open+Source+Enthusiast;%E6%AD%A3%E5%9C%A8%E5%81%9A%E5%9B%A2%E9%98%9F%E5%8A%9E%E5%85%AC%E4%B8%8E%E6%89%8B%E6%9C%BA%E6%93%8D%E6%8E%A7+Agent;Love+building+products" alt="Typing SVG" /></a>
 </div>
 
 <div align="center">
@@ -17,7 +17,7 @@
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**work-assistant-agent** — 让 AI Agent 融入团队日常工作
+- 🔭 正在做：**work-assistant-agent**（团队办公 Agent）+ **TapPilot**（手机操控 Agent）
 - 🌱 正在学：全栈工程化 · Agent 应用
 - 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
@@ -28,7 +28,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,python,rust,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind,sqlite,postgres,mysql,docker,nginx&perline=9&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,python,rust,kotlin,html,css,react,nextjs,vue,nodejs,fastapi,electron,tailwind,sqlite,postgres,mysql,docker,nginx&perline=10&theme=dark" alt="技术栈" />
   </a>
 </div>
 
@@ -52,36 +52,36 @@
 
 <table>
 <tr>
-<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personla-site"><strong>personla-site</strong></a> <code>TypeScript</code><br>个人网站</td>
 <td width="50%">💼 <a href="https://github.com/shi-YangYang/work-assistant-agent"><strong>work-assistant-agent</strong></a> <code>Python</code><br>让 AI Agent 融入团队日常工作：任务管理、日报周报、会议录音转写与智能纪要</td>
+<td width="50%">📱 <a href="https://github.com/shi-YangYang/TapPilot"><strong>TapPilot</strong></a> <code>TypeScript</code><br>电脑用 LLM 遥控 Android：读无障碍树而非截图，USB/WSS 双通道，MCP 可接任意 Agent</td>
 </tr>
 <tr>
-<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>基于 clash-verge 开发的团队版</td>
-<td width="50%">📡 <a href="https://github.com/shi-YangYang/AI-Frontier-Radar"><strong>AI-Frontier-Radar</strong></a> <code>TypeScript</code><br>本地优先的 AI 资讯雷达：聚合 X 账号、官方博客与 RSS，推送飞书/企微/钉钉/Bark，内置本地 Web 控制台</td>
+<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>TypeScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
+<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personla-site"><strong>personla-site</strong></a> <code>TypeScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
 </tr>
 <tr>
-<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
+<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
+<td width="50%">📡 <a href="https://github.com/shi-YangYang/AI-Frontier-Radar"><strong>AI-Frontier-Radar</strong></a> <code>TypeScript</code><br>本地优先的 AI 前沿消息雷达：聚合 X 账号、官方博客与 RSS，多渠道推送，内置本地 Web 控制台</td>
+</tr>
+<tr>
 <td width="50%">🗣️ <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>OpenCode 破甲：代码上下文补全 + 被拒自动修复 + 本地 Web UI，零依赖</td>
-</tr>
-<tr>
 <td width="50%">🔬 <a href="https://github.com/shi-YangYang/openlab"><strong>openlab</strong></a> <code>Python</code><br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化</td>
-<td width="50%">🤝 <a href="https://github.com/shi-YangYang/Multi-LLM"><strong>Multi-LLM</strong></a> <code>Python</code><br>多 LLM 协作</td>
 </tr>
 <tr>
+<td width="50%">🤝 <a href="https://github.com/shi-YangYang/Multi-LLM"><strong>Multi-LLM</strong></a> <code>Python</code><br>把思考成本摊成模板：强模型写规格，弱模型并行执行——3 个任务仅耗 290 tokens</td>
 <td width="50%">🧭 <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备</td>
+</tr>
+<tr>
 <td width="50%">🖥️ <a href="https://github.com/shi-YangYang/dsh-desktop"><strong>dsh-desktop</strong></a> <code>JavaScript</code><br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行</td>
+<td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
 </tr>
 <tr>
-<td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>plus直卡提链一条龙</td>
-<td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>小蓝书，专为西格玛男士打造</td>
-</tr>
-<tr>
+<td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
 <td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
-<td width="50%">⚙️ <a href="https://github.com/shi-YangYang/Easy-OpenClaw"><strong>Easy-OpenClaw</strong></a> <code>Vue</code><br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行</td>
 </tr>
 <tr>
-<td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>学生管理系统（详见 readme.txt）</td>
-<td></td>
+<td width="50%">⚙️ <a href="https://github.com/shi-YangYang/Easy-OpenClaw"><strong>Easy-OpenClaw</strong></a> <code>Vue</code><br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行</td>
+<td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
 </tr>
 </table>
 
@@ -99,14 +99,6 @@
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=shi-YangYang&theme=github-dark&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
-</div>
-
----
-
-## 🏔️ 3D 贡献图
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-3d-contrib/profile-night-green.svg" alt="3D 贡献图" width="100%" />
 </div>
 
 ---
