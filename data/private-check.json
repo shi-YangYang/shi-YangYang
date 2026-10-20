@@ -22,5 +22,17 @@
   }
  ],
  "org_count": 0,
- "orgs": []
+ "orgs": [],
+ "contributions": {
+  "data": {
+   "user": {
+    "contributionsCollection": {
+     "totalCommitContributions": 1005,
+     "totalPullRequestContributions": 120,
+     "totalIssueContributions": 0,
+     "restrictedContributionsCount": 69
+    }
+   }
+  }
+ }
 }
