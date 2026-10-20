@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Generate stats SVG
         env:
-          GITHUB_TOKEN: ${{ secrets.STAR_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STAR_TOKEN: ${{ secrets.STAR_TOKEN }}
         run: python3 scripts/profile_stats.py
       - name: Commit
         run: |

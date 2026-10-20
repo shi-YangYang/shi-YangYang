@@ -13,6 +13,7 @@ OUT = "profile-stats.svg"
 API = "https://api.github.com"
 UA = "profile-stats-svg"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
+USER_TOKEN = os.environ.get("STAR_TOKEN", "")
 
 SERIES = [
     ("stars", "Star", "#f2cc60"),
@@ -23,10 +24,11 @@ SERIES = [
 ]
 
 
-def get(url, headers=None, retries=2, auth=False):
+def get(url, headers=None, retries=2, auth=False, token=None):
     hdrs = dict(headers or {"User-Agent": UA})
-    if auth and TOKEN:
-        hdrs["Authorization"] = f"Bearer {TOKEN}"
+    use = token or (TOKEN if auth else "")
+    if use:
+        hdrs["Authorization"] = f"Bearer {use}"
     req = urllib.request.Request(url, headers=hdrs)
     for attempt in range(retries + 1):
         try:
@@ -47,7 +49,7 @@ def graphql(query, variables):
         f"{API}/graphql",
         data=body,
         headers={
-            "Authorization": f"Bearer {TOKEN}",
+            "Authorization": f"Bearer {USER_TOKEN}",
             "Content-Type": "application/json",
             "User-Agent": UA,
         },
@@ -74,7 +76,7 @@ def month_points(months=12):
 
 def search_count(query, kind):
     url = f"{API}/search/{kind}?q={urllib.parse.quote(query, safe='')}&per_page=1"
-    data = get(url)
+    data = get(url, token=USER_TOKEN or None)
     time.sleep(7)
     return (data or {}).get("total_count", 0)
 
@@ -83,21 +85,34 @@ def fetch_repos():
     repos = []
     page = 1
     while True:
-        data = get(
-            f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner",
-            auth=True,
-        )
+        if USER_TOKEN:
+            url = (
+                f"{API}/user/repos?per_page=100&page={page}"
+                "&affiliation=owner&visibility=all"
+            )
+            data = get(url, token=USER_TOKEN)
+        else:
+            url = f"{API}/users/{USER}/repos?per_page=100&page={page}&type=owner"
+            data = get(url, auth=True)
         if not data:
             break
         repos.extend(data)
         if len(data) < 100:
             break
         page += 1
-    return [r for r in repos if not r.get("fork")]
+    seen = set()
+    out = []
+    for r in repos:
+        key = r.get("full_name") or r.get("name")
+        if r.get("fork") or key in seen:
+            continue
+        seen.add(key)
+        out.append(r)
+    return out
 
 
 def fetch_star_dates_graphql(repos):
-    if not TOKEN:
+    if not USER_TOKEN:
         return []
     q = """
     query($owner:String!, $name:String!, $cursor:String) {
@@ -150,7 +165,7 @@ def fetch_star_dates_rest(repos):
                         "User-Agent": UA,
                         "Accept": "application/vnd.github.star+json",
                     },
-                    auth=True,
+                    token=USER_TOKEN or TOKEN,
                 )
             except Exception as e:
                 print("stargazers failed:", repo["name"], e)
@@ -314,6 +329,10 @@ def main():
         except Exception:
             pass
     values = history.setdefault("points", {})
+
+    if USER_TOKEN and not history.get("meta", {}).get("user_token"):
+        values.clear()
+        history.setdefault("meta", {})["user_token"] = True
 
     fresh = collect(
         [datetime.date.fromisoformat(p) for p in points], values, history
