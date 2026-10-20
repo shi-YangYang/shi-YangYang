@@ -5,6 +5,22 @@
  "owned_private_repos": null,
  "private_repos_visible": 2,
  "private_repos_has_more": false,
+ "private_repo_details": [
+  {
+   "fork": false,
+   "empty": false,
+   "pushed": "2026-10",
+   "default_branch": "main",
+   "my_commits": 61
+  },
+  {
+   "fork": false,
+   "empty": false,
+   "pushed": "2026-07",
+   "default_branch": "main",
+   "my_commits": 1
+  }
+ ],
  "org_count": 0,
  "orgs": []
 }
