@@ -100,7 +100,7 @@ def fetch_private_repos():
         return []
     try:
         data = get(
-            f"{API}/user/repos?per_page=100&affiliation=owner&visibility=private",
+            f"{API}/user/repos?per_page=100&affiliation=owner,collaborator,organization_member&visibility=private",
             token=USER_TOKEN,
         )
         return [r for r in (data or []) if not r.get("fork")]
@@ -343,9 +343,9 @@ def main():
     except Exception as e:
         private_names = []
         history.setdefault("meta", {})["private_repos_error"] = str(e)[:120]
-    if private_names and not history.get("meta", {}).get("private_counts"):
+    if private_names and not history.get("meta", {}).get("private_counts_v2"):
         values.clear()
-        history.setdefault("meta", {})["private_counts"] = True
+        history.setdefault("meta", {})["private_counts_v2"] = True
 
     fresh = collect(
         [datetime.date.fromisoformat(p) for p in points],
