@@ -363,6 +363,7 @@ def write_debug():
     with open("data/debug.json", "w", encoding="utf-8") as f:
         json.dump(info, f, ensure_ascii=False, indent=1)
     print("debug:", info)
+    return info
 
 
 def main():
@@ -376,11 +377,14 @@ def main():
         except Exception:
             pass
     values = history.setdefault("points", {})
-    write_debug()
+    info = write_debug()
 
-    if USER_TOKEN and not history.get("meta", {}).get("user_token"):
+    tok_pr = info.get("search_pr_token")
+    anon_pr = info.get("search_pr_anon")
+    has_private = isinstance(tok_pr, int) and isinstance(anon_pr, int) and tok_pr > anon_pr
+    if has_private and not history.get("meta", {}).get("private"):
         values.clear()
-        history.setdefault("meta", {})["user_token"] = True
+        history.setdefault("meta", {})["private"] = True
 
     fresh = collect(
         [datetime.date.fromisoformat(p) for p in points], values, history
