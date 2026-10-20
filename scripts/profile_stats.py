@@ -415,6 +415,26 @@ def private_check():
             out["private_repos_visible"] = len(data)
             link = r.headers.get("Link") or ""
             out["private_repos_has_more"] = 'rel="next"' in link
+            details = []
+            for repo in data:
+                det = {
+                    "fork": bool(repo.get("fork")),
+                    "empty": not repo.get("size"),
+                    "pushed": (repo.get("pushed_at") or "")[:7],
+                    "default_branch": repo.get("default_branch"),
+                }
+                try:
+                    q = urllib.parse.quote(
+                        f"repo:{repo['full_name']} author:{USER}", safe=""
+                    )
+                    url = f"{API}/search/commits?q={q}&per_page=1"
+                    req2 = urllib.request.Request(url, headers=hdr)
+                    with urllib.request.urlopen(req2, timeout=20) as r2:
+                        det["my_commits"] = json.load(r2).get("total_count")
+                except Exception as e:
+                    det["commits_error"] = str(e)[:60]
+                details.append(det)
+            out["private_repo_details"] = details
     except Exception as e:
         out["private_repos_error"] = str(e)
     try:
