@@ -21,13 +21,16 @@
    "my_commits": 1
   }
  ],
+ "private_scope_commits": 62,
+ "private_scope_prs": 7,
+ "private_scope_issues": 0,
  "org_count": 0,
  "orgs": [],
  "contributions": {
   "data": {
    "user": {
     "contributionsCollection": {
-     "totalCommitContributions": 1005,
+     "totalCommitContributions": 1006,
      "totalPullRequestContributions": 120,
      "totalIssueContributions": 0,
      "restrictedContributionsCount": 69
@@ -39,7 +42,7 @@
   "data": {
    "user": {
     "contributionsCollection": {
-     "totalCommitContributions": 1005,
+     "totalCommitContributions": 1006,
      "totalPullRequestContributions": 120,
      "totalIssueContributions": 0,
      "restrictedContributionsCount": 69
