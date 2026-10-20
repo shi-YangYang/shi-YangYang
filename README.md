@@ -90,13 +90,11 @@
 ## 📊 GitHub 数据
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/github-metrics.svg" alt="GitHub Metrics" width="100%" />
+  <img src="https://raw.githubusercontent.com/shi-YangYang/shi-YangYang/main/profile-stats.svg" alt="访问统计" width="100%" />
 </div>
 
-📈 访客与粉丝历史曲线：[Ÿ HŸPE 看板](https://yhype.me)（登录可见）
-
 <!--
-Ÿ HŸPE 隐身访客像素：登录 yhype.me 后把下面这行替换为你的像素 URL 并取消注释
+Ÿ HŸPE 隐身访客像素（可选）：登录 yhype.me 后把下面这行替换为你的像素 URL 并取消注释
 <img src="YOUR_YHYPE_PIXEL_URL" width="1" height="1" alt="" />
 -->
 
