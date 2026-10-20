@@ -177,9 +177,10 @@ def collect(points, values, hist):
         return fresh
 
     star_dates = hist.get("star_dates") or []
-    if not star_dates and hist.get("meta", {}).get("star_try") != today:
+    star_try_key = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H")
+    if not star_dates and hist.get("meta", {}).get("star_try") != star_try_key:
         star_dates = fetch_star_dates_graphql(repos) or fetch_star_dates_rest(repos)
-        hist.setdefault("meta", {})["star_try"] = today
+        hist.setdefault("meta", {})["star_try"] = star_try_key
         if star_dates:
             hist["star_dates"] = star_dates
     star_total = sum(r.get("stargazers_count", 0) for r in repos)
