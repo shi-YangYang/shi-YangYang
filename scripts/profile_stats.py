@@ -2,27 +2,55 @@ import datetime
 import json
 import math
 import os
+import re
 import urllib.request
 
 USER = "shi-YangYang"
-REPO = f"{USER}/{USER}"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 HISTORY = "data/history.json"
 OUT = "profile-stats.svg"
 WINDOW = 30
+HITS_URL = (
+    f"https://hits.sh/github.com/{USER}.svg"
+    "?label=visitors&color=34d399&style=flat-square"
+)
 
 
-def api(path):
-    req = urllib.request.Request(
-        f"https://api.github.com/{path}",
-        headers={
-            "Authorization": f"Bearer {TOKEN}",
-            "Accept": "application/vnd.github+json",
-            "User-Agent": USER,
-        },
-    )
+def get(url, headers=None):
+    req = urllib.request.Request(url, headers=headers or {"User-Agent": USER})
     with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+        return r.read().decode("utf-8", "ignore")
+
+
+def fetch_followers():
+    try:
+        data = json.loads(
+            get(
+                f"https://api.github.com/users/{USER}",
+                {
+                    "Authorization": f"Bearer {TOKEN}",
+                    "Accept": "application/vnd.github+json",
+                    "User-Agent": USER,
+                },
+            )
+        )
+        return data.get("followers")
+    except Exception as e:
+        print("user api failed:", e)
+    return None
+
+
+def fetch_hits():
+    try:
+        svg = get(HITS_URL)
+        m = re.search(r'aria-label="visitors:\s*([\d,]+)"', svg)
+        if not m:
+            m = re.search(r">([\d,]+)</text>", svg)
+        if m:
+            return int(m.group(1).replace(",", ""))
+    except Exception as e:
+        print("hits.sh failed:", e)
+    return None
 
 
 def load_history():
@@ -34,20 +62,19 @@ def load_history():
 
 def collect(hist):
     days = hist.setdefault("days", {})
-    try:
-        user = api(f"users/{USER}")
-        hist["followers"] = user.get("followers", 0)
-    except Exception as e:
-        print("user api failed:", e)
-    try:
-        traffic = api(f"repos/{REPO}/traffic/views?per=day")
-        for d in traffic.get("views", []):
-            days[d["timestamp"][:10]] = {
-                "views": d["count"],
-                "uniques": d["uniques"],
-            }
-    except Exception as e:
-        print("traffic api failed:", e)
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    entry = days.get(today, {})
+
+    followers = fetch_followers()
+    if followers is not None:
+        entry["followers"] = followers
+
+    hits = fetch_hits()
+    if hits is not None:
+        entry["hits"] = hits
+
+    if entry:
+        days[today] = entry
 
 
 def nice_max(v):
@@ -67,35 +94,48 @@ def fmt(n):
 def render(hist):
     days = hist.get("days", {})
     dates = sorted(days)[-WINDOW:]
-    if not dates:
-        dates = [datetime.date.today().isoformat()]
-    views = [days.get(d, {}).get("views", 0) for d in dates]
-    uniques = [days.get(d, {}).get("uniques", 0) for d in dates]
+    followers = [days[d].get("followers") for d in dates]
+    hits = [days[d].get("hits") for d in dates]
 
-    total_views = sum(days[d].get("views", 0) for d in days)
-    total_uniques = sum(days[d].get("uniques", 0) for d in days)
-    followers = hist.get("followers", 0)
+    latest_hits = next((h for h in reversed(hits) if h is not None), 0)
+    latest_followers = next((f for f in reversed(followers) if f is not None), 0)
+    start = dates[0] if dates else datetime.date.today().isoformat()
 
     W, H = 860, 320
-    L, R, T, B = 56, 28, 104, 44
+    L, R, T, B = 56, 28, 108, 44
     pw, ph = W - L - R, H - T - B
-    ymax = nice_max(max(views + [1]))
+    series = [v for v in hits + followers if v is not None]
+    ymax = nice_max(max(series + [1]))
 
     def x(i):
-        if len(dates) == 1:
+        if len(dates) <= 1:
             return L + pw / 2
         return L + pw * i / (len(dates) - 1)
 
     def y(v):
         return T + ph * (1 - v / ymax)
 
-    pts_v = " ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(views))
-    pts_u = " ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(uniques))
-    area = (
-        f"M {L},{T + ph} L "
-        + " L ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(views))
-        + f" L {x(len(dates) - 1):.1f},{T + ph} Z"
-    )
+    def polyline(values, color, width, dash=None, fill=None):
+        pts = [
+            (x(i), y(v)) for i, v in enumerate(values) if v is not None
+        ]
+        if not pts:
+            return ""
+        attr = f'fill="none" stroke="{color}" stroke-width="{width}"'
+        if dash:
+            attr += f' stroke-dasharray="{dash}"'
+        if len(pts) == 1:
+            return f'<circle cx="{pts[0][0]:.1f}" cy="{pts[0][1]:.1f}" r="{width + 1.5}" fill="{color}"/>'
+        line = " ".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+        out = f'<polyline points="{line}" {attr} stroke-linejoin="round" stroke-linecap="round"/>'
+        if fill:
+            area = (
+                f"M {pts[0][0]:.1f},{T + ph} L "
+                + " L ".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+                + f" L {pts[-1][0]:.1f},{T + ph} Z"
+            )
+            out = f'<path d="{area}" fill="{fill}"/>' + out
+        return out
 
     grid = []
     for k in range(5):
@@ -109,19 +149,16 @@ def render(hist):
         )
 
     step = max(1, (len(dates) - 1) // 5)
-    xlabels = []
-    for i in range(0, len(dates), step):
-        d = dates[i][5:]
-        xlabels.append(
-            f'<text x="{x(i):.1f}" y="{T + ph + 20}" fill="#6e7681" '
-            f'font-size="10" text-anchor="middle">{d}</text>'
-        )
+    xlabels = [
+        f'<text x="{x(i):.1f}" y="{T + ph + 20}" fill="#6e7681" font-size="10" '
+        f'text-anchor="middle">{dates[i][5:]}</text>'
+        for i in range(0, len(dates), step)
+    ]
 
     stats = [
-        ("总访问", fmt(total_views)),
-        ("独立访客", fmt(total_uniques)),
-        ("关注者", fmt(followers)),
-        ("统计天数", f"{len(days)} 天"),
+        ("累计访问", fmt(latest_hits)),
+        ("关注者", fmt(latest_followers)),
+        ("记录天数", f"{len(days)} 天"),
     ]
     sx = W - R
     blocks = []
@@ -144,24 +181,23 @@ def render(hist):
   <text x="{L - 32}" y="40" fill="#e6edf3" font-size="20" font-weight="700"
         font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">访问统计</text>
   <text x="{L - 32}" y="64" fill="#6e7681" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 {len(dates)} 天 · 来自 GitHub Traffic API（UTC）</text>
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">自 {start} 起每日记录 · 近 {len(dates)} 天</text>
   {''.join(blocks)}
   {''.join(grid)}
-  <path d="{area}" fill="url(#area)"/>
-  <polyline points="{pts_u}" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <polyline points="{pts_v}" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  {polyline(followers, "#8b949e", 1.5, dash="4 3")}
+  {polyline(hits, "#34d399", 2.2, fill="url(#area)")}
   {''.join(xlabels)}
   <circle cx="{L - 32}" cy="{H - 18}" r="4" fill="#34d399"/>
   <text x="{L - 22}" y="{H - 14}" fill="#8b949e" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">访问量</text>
-  <circle cx="{L + 40}" cy="{H - 18}" r="4" fill="#8b949e"/>
-  <text x="{L + 50}" y="{H - 14}" fill="#8b949e" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">独立访客</text>
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">累计访问</text>
+  <circle cx="{L + 32}" cy="{H - 18}" r="4" fill="#8b949e"/>
+  <text x="{L + 42}" y="{H - 14}" fill="#8b949e" font-size="11"
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">关注者</text>
 </svg>
 '''
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"wrote {OUT}: {len(dates)} days, {total_views} views")
+    print(f"wrote {OUT}: {len(dates)} days, hits={latest_hits}, followers={latest_followers}")
 
 
 def main():
