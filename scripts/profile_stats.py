@@ -1,6 +1,22 @@
+"""Keep profile-stats.svg and data/history.json up to date.
+
+    python3 scripts/profile_stats.py             # fetch GitHub data, then render
+    python3 scripts/profile_stats.py --offline   # render from cached history only
+
+Environment: GITHUB_TOKEN (provided by Actions), STAR_TOKEN (PAT; needed for
+private contributions and for stargazer timestamps).
+
+Counting model: every series is cumulative ("everything authored before this
+date").  Public and private contributions are queried separately with the
+`is:public` / `is:private` search qualifiers and then summed, so private work is
+counted exactly once.  (The previous `repo:` scoped add-on double counted it,
+because an authenticated commit/issue search already includes private repos.)
+"""
+
 import datetime
 import json
 import os
+import sys
 import time
 import urllib.error
 import urllib.parse
@@ -13,14 +29,24 @@ API = "https://api.github.com"
 UA = "profile-stats-svg"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 USER_TOKEN = os.environ.get("STAR_TOKEN", "")
+OFFLINE = os.environ.get("PROFILE_STATS_OFFLINE") == "1" or "--offline" in sys.argv
+
+MONTHS = 12
+PACE = 2.5  # seconds between search calls (30 requests/minute limit)
 
 SERIES = [
     ("stars", "Star", "#f2cc60"),
     ("commits", "提交", "#34d399"),
     ("prs", "PR", "#58a6ff"),
     ("issues", "Issue", "#db61a2"),
-    ("repos", "仓库", "#a78bfa"),
+    ("repos", "公开仓库", "#a78bfa"),
 ]
+
+# Only these meta keys are meaningful; everything else is legacy residue that
+# used to accumulate in history.json (days, private_counts, stars_filled, ...).
+META_KEYS = {"private_repos", "private_repos_error", "star_try", "counts_v3"}
+
+TODAY = datetime.date.today()
 
 
 def get(url, headers=None, retries=2, token=None):
@@ -28,17 +54,25 @@ def get(url, headers=None, retries=2, token=None):
     if token:
         hdrs["Authorization"] = f"Bearer {token}"
     req = urllib.request.Request(url, headers=hdrs)
+    last = None
     for attempt in range(retries + 1):
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
-            if e.code in (403, 429) and attempt < retries:
-                print("rate limited, sleeping 60s")
-                time.sleep(60)
-                continue
-            raise
-    return None
+            last = e
+            retryable = e.code in (403, 429) or e.code >= 500
+            if not retryable or attempt >= retries:
+                raise
+            wait = 60 if e.code in (403, 429) else 5 * (attempt + 1)
+            print(f"http {e.code}, sleeping {wait}s")
+            time.sleep(wait)
+        except (urllib.error.URLError, TimeoutError) as e:
+            last = e
+            if attempt >= retries:
+                raise
+            time.sleep(5 * (attempt + 1))
+    raise last
 
 
 def graphql(query, variables, token=None):
@@ -57,27 +91,33 @@ def graphql(query, variables, token=None):
         return json.load(r)
 
 
-def month_points(months=12):
-    today = datetime.date.today()
-    points = []
-    y, m = today.year, today.month
-    for _ in range(months):
-        points.append(datetime.date(y, m, 1))
+def window_start(months=MONTHS):
+    """First day of the month `months - 1` months ago (same window as before)."""
+    y, m = TODAY.year, TODAY.month
+    for _ in range(months - 1):
         m -= 1
         if m == 0:
-            m = 12
-            y -= 1
-    points.reverse()
-    points.append(today)
-    return points
+            m, y = 12, y - 1
+    return datetime.date(y, m, 1)
+
+
+def month_starts(start, end):
+    out = []
+    cur = datetime.date(start.year, start.month, 1)
+    while cur <= end:
+        out.append(cur)
+        cur = datetime.date(cur.year + cur.month // 12, cur.month % 12 + 1, 1)
+    return out
 
 
 def search_count(query, kind, pace=True):
     url = f"{API}/search/{kind}?q={urllib.parse.quote(query, safe='')}&per_page=1"
-    data = get(url, token=USER_TOKEN or None)
-    if pace:
-        time.sleep(2.5 if USER_TOKEN else 7)
-    return (data or {}).get("total_count", 0)
+    try:
+        data = get(url, token=USER_TOKEN or None)
+        return (data or {}).get("total_count", 0)
+    finally:
+        if pace:
+            time.sleep(PACE if USER_TOKEN else 7)
 
 
 def fetch_repos():
@@ -98,15 +138,21 @@ def fetch_repos():
 def fetch_private_repos():
     if not USER_TOKEN:
         return []
-    try:
-        data = get(
-            f"{API}/user/repos?per_page=100&affiliation=owner,collaborator,organization_member&visibility=private",
-            token=USER_TOKEN,
+    repos = []
+    page = 1
+    while True:
+        url = (
+            f"{API}/user/repos?per_page=100&page={page}"
+            "&affiliation=owner,collaborator,organization_member&visibility=private"
         )
-        return [r for r in (data or []) if not r.get("fork")]
-    except Exception as e:
-        print("private repos failed:", e)
-        return []
+        data = get(url, token=USER_TOKEN)
+        if not data:
+            break
+        repos.extend(data)
+        if len(data) < 100:
+            break
+        page += 1
+    return [r for r in repos if not r.get("fork")]
 
 
 def fetch_star_dates_graphql(repos):
@@ -173,77 +219,96 @@ def fetch_star_dates_rest(repos):
     return dates
 
 
-def collect(points, values, hist, private_names):
-    today = datetime.date.today().isoformat()
+def refresh_star_dates(history, repos, star_total):
+    """Keep stargazer timestamps in sync with the live star count.
+
+    The dates used to be fetched once and never again, so historical star
+    values froze at whatever the first successful fetch returned.  Now they are
+    refetched whenever the count no longer matches (new stars, or un-stars),
+    at most once per hour.
+    """
+    meta = history.setdefault("meta", {})
+    star_dates = history.get("star_dates") or []
+    if not repos or (star_dates and len(star_dates) == star_total):
+        return star_dates
+
+    hour_key = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H")
+    if meta.get("star_try") == hour_key:
+        return star_dates
+    meta["star_try"] = hour_key
+
+    fetched = fetch_star_dates_graphql(repos) or fetch_star_dates_rest(repos)
+    if fetched:
+        history["star_dates"] = fetched
+        print(f"star_dates refreshed: {len(fetched)} (total {star_total})")
+        return fetched
+    print("star_dates unavailable, keeping cached values")
+    return star_dates
+
+
+def apply_stars(values, star_dates, star_total, today):
+    """Recompute the star series for every stored point, not just today."""
+    if star_dates:
+        for iso in values:
+            values[iso]["stars"] = sum(1 for d in star_dates if d < iso)
+    if star_total:
+        values.setdefault(today, {})["stars"] = star_total
+
+
+QUERIES = (
+    ("commits", "commits", "author:{user} {vis}author-date:<{iso}"),
+    ("prs", "issues", "author:{user} type:pr {vis}created:<{iso}"),
+    ("issues", "issues", "author:{user} type:issue {vis}created:<{iso}"),
+)
+
+
+def contribution_counts(iso):
+    """Cumulative commits/PRs/issues authored before `iso`, public + private."""
+    out = {}
+    visibilities = ["is:public "] + (["is:private "] if USER_TOKEN else [])
+    for key, kind, template in QUERIES:
+        out[key] = sum(
+            search_count(template.format(user=USER, vis=vis, iso=iso), kind)
+            for vis in visibilities
+        )
+    return out
+
+
+def collect(points, values, repo_dates, today, recompute=False):
+    """Fill in the missing points; `recompute` refreshes every point once."""
     fresh = {}
-    scope = " ".join(f"repo:{n}" for n in private_names)
-
-    try:
-        repos = fetch_repos()
-    except Exception as e:
-        print("repos failed:", e)
-        return fresh
-
-    star_dates = hist.get("star_dates") or []
-    try_key = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H")
-    if not star_dates and hist.get("meta", {}).get("star_try") != try_key:
-        star_dates = fetch_star_dates_graphql(repos) or fetch_star_dates_rest(repos)
-        hist.setdefault("meta", {})["star_try"] = try_key
-        if star_dates:
-            hist["star_dates"] = star_dates
-
-    star_total = sum(r.get("stargazers_count", 0) for r in repos)
-    repo_dates = [r["created_at"][:10] for r in repos if not r.get("private")]
-
-    for d in points:
-        iso = d.isoformat()
-        if iso != today and iso in values:
+    failures = 0
+    for iso in points:
+        if iso != today and iso in values and not recompute:
             continue
-
-        if star_dates:
-            stars = sum(1 for x in star_dates if x < iso)
-        elif iso == today:
-            stars = star_total
-        else:
-            stars = values.get(iso, {}).get("stars")
-
-        entry = {
-            "stars": stars,
-            "repos": sum(1 for x in repo_dates if x < iso),
-        }
+        entry = {"repos": sum(1 for d in repo_dates if d < iso)}
+        if values.get(iso, {}).get("stars") is not None:
+            # keep the old star value if the live one cannot be derived
+            entry["stars"] = values[iso]["stars"]
         try:
-            commits = search_count(f"author:{USER} author-date:<{iso}", "commits")
-            prs = search_count(f"author:{USER} type:pr created:<{iso}", "issues")
-            issues = search_count(f"author:{USER} type:issue created:<{iso}", "issues")
-            if scope:
-                commits += search_count(
-                    f"author:{USER} {scope} author-date:<{iso}", "commits"
-                )
-                prs += search_count(
-                    f"author:{USER} {scope} type:pr created:<{iso}", "issues"
-                )
-                issues += search_count(
-                    f"author:{USER} {scope} type:issue created:<{iso}", "issues"
-                )
-            entry["commits"] = commits
-            entry["prs"] = prs
-            entry["issues"] = issues
+            entry.update(contribution_counts(iso))
         except Exception as e:
             print("search failed for", iso, e)
-            if iso in values:
-                for k, v in values[iso].items():
-                    entry.setdefault(k, v)
+            failures += 1
+            continue
         fresh[iso] = entry
         print(iso, entry)
+    return fresh, failures
 
-    return fresh
+
+def sanitize(history):
+    """Drop legacy keys (days, private_counts_v2, stars_filled, ...)."""
+    history.pop("days", None)
+    meta = history.get("meta") or {}
+    history["meta"] = {k: v for k, v in meta.items() if k in META_KEYS}
+    return history
 
 
 def fmt(n):
     return f"{n:,}"
 
 
-def render(points, values):
+def render(points, values, private_repos=None):
     W, H = 860, 420
     L = 36
     top = 100
@@ -256,8 +321,6 @@ def render(points, values):
         vals = [values.get(p, {}).get(key) for p in points]
         known = [v for v in vals if v is not None]
         cur = known[-1] if known else 0
-        first = known[0] if known else 0
-        delta = cur - first
         y0 = top + i * row_h
 
         vmax = max(known + [1])
@@ -279,11 +342,12 @@ def render(points, values):
                 + f" L {px(seen[-1][0]):.1f},{y0 + sh} Z"
             )
 
-        delta_label = (
-            f"12 个月 +{fmt(delta)}"
-            if values.get(points[0], {}).get(key) is not None
-            else "自今日起记录"
-        )
+        delta_label = "自今日起记录"
+        if len(seen) > 1:
+            first = datetime.date.fromisoformat(points[seen[0][0]])
+            last = datetime.date.fromisoformat(points[seen[-1][0]])
+            months = max(1, round((last - first).days / 30.44))
+            delta_label = f"近 {months} 个月 {known[-1] - known[0]:+,}"
 
         rows.append(
             f'<text x="{L}" y="{y0 + 8}" fill="#c9d1d9" font-size="12" '
@@ -305,6 +369,10 @@ def render(points, values):
             )
         )
 
+    subtitle = "近 12 个月 · 累计值 · 每小时同步"
+    if private_repos:
+        subtitle = f"近 12 个月 · 累计值 · 含 {private_repos} 个私有仓库 · 每小时同步"
+
     xlabels = (
         f'<text x="{sx0}" y="{top + 5 * row_h + 8}" fill="#6e7681" font-size="10">'
         f"{points[0][5:]}</text>"
@@ -317,7 +385,7 @@ def render(points, values):
   <text x="{L}" y="40" fill="#e6edf3" font-size="20" font-weight="700"
         font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">GitHub 增长</text>
   <text x="{L}" y="62" fill="#6e7681" font-size="11"
-        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">近 12 个月 · 累计值（含私有仓库） · 每小时同步</text>
+        font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">{subtitle}</text>
   {''.join(rows)}
   {xlabels}
 </svg>
@@ -325,49 +393,74 @@ def render(points, values):
 
 
 def main():
-    points = [d.isoformat() for d in month_points(12)]
+    today = TODAY.isoformat()
+    start = window_start()
 
     history = {"points": {}, "meta": {}}
     if os.path.exists(HISTORY):
         try:
             with open(HISTORY, encoding="utf-8") as f:
                 history = json.load(f)
-        except Exception:
-            pass
+        except Exception as e:
+            print("history unreadable, starting fresh:", e)
+    sanitize(history)
     values = history.setdefault("points", {})
 
-    try:
-        private_list = fetch_private_repos()
-        private_names = [r["full_name"] for r in private_list]
-        history.setdefault("meta", {})["private_repos"] = len(private_names)
-    except Exception as e:
-        private_names = []
-        history.setdefault("meta", {})["private_repos_error"] = str(e)[:120]
-    if private_names and not history.get("meta", {}).get("private_counts_v2"):
-        values.clear()
-        history.setdefault("meta", {})["private_counts_v2"] = True
+    # keep data/history.json bounded to the 12 month window
+    for iso in [k for k in values if k < start.isoformat()]:
+        values.pop(iso, None)
 
-    fresh = collect(
-        [datetime.date.fromisoformat(p) for p in points],
-        values,
-        history,
-        private_names,
-    )
+    if not OFFLINE:
+        try:
+            repos = fetch_repos()
+        except Exception as e:
+            print("repos failed:", e)
+            repos = []
 
-    if history.get("star_dates") and not history.get("meta", {}).get("stars_filled"):
-        for pk, pv in values.items():
-            pv["stars"] = sum(1 for x in history["star_dates"] if x < pk)
-        history.setdefault("meta", {})["stars_filled"] = True
-        for k, v in values.items():
-            fresh[k] = v
+        if repos:
+            repo_dates = [r["created_at"][:10] for r in repos if not r.get("private")]
+            star_total = sum(r.get("stargazers_count", 0) for r in repos)
+            try:
+                private_names = [r["full_name"] for r in fetch_private_repos()]
+                history["meta"]["private_repos"] = len(private_names)
+                history["meta"].pop("private_repos_error", None)
+            except Exception as e:
+                print("private repos failed:", e)
+                history["meta"]["private_repos_error"] = str(e)[:120]
 
-    if fresh:
-        values.update(fresh)
-        os.makedirs("data", exist_ok=True)
-        with open(HISTORY, "w", encoding="utf-8") as f:
-            json.dump(history, f, ensure_ascii=False, indent=1, sort_keys=True)
+            star_dates = refresh_star_dates(history, repos, star_total)
 
-    svg = render(points, values)
+            # one-off migration: recount every stored point, because the old
+            # repo-scoped queries double counted private contributions.  Without
+            # a PAT we cannot see private contributions, so wait for one instead
+            # of baking in public-only numbers.
+            recompute = not history["meta"].get("counts_v3")
+            if recompute and not USER_TOKEN:
+                print("STAR_TOKEN missing: skipping the one-off recount")
+                recompute = False
+            points = [d.isoformat() for d in month_starts(start, TODAY)] + [today]
+            if recompute:
+                points += list(values)  # stale daily points too
+            fresh, failures = collect(
+                sorted(set(points)), values, repo_dates, today, recompute
+            )
+            values.update(fresh)
+            apply_stars(values, star_dates, star_total, today)
+            if recompute:
+                if failures:
+                    print(f"recount incomplete ({failures} points), will retry")
+                else:
+                    history["meta"]["counts_v3"] = True
+                    print("recount complete")
+
+    os.makedirs("data", exist_ok=True)
+    with open(HISTORY, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=1, sort_keys=True)
+
+    points = sorted(p for p in values if p >= start.isoformat())
+    if today not in points:
+        points.append(today)
+    svg = render(points, values, history["meta"].get("private_repos"))
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
     print("wrote", OUT)

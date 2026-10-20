@@ -10,16 +10,32 @@ on:
 permissions:
   contents: write
 
+# hourly runs must not overlap: a second run would race the history file
+concurrency:
+  group: profile-stats
+  cancel-in-progress: false
+
 jobs:
   stats:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Generate stats SVG
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STAR_TOKEN: ${{ secrets.STAR_TOKEN }}
-        run: python3 -u scripts/profile_stats.py
+        run: |
+          for attempt in 1 2 3; do
+            echo "attempt ${attempt}/3"
+            if python3 -u scripts/profile_stats.py; then
+              exit 0
+            fi
+            echo "attempt ${attempt} failed, retrying in 30s"
+            sleep 30
+          done
+          echo "all attempts failed" >&2
+          exit 1
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
