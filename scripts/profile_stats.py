@@ -459,6 +459,28 @@ def private_check():
         out["orgs"] = statuses
     except Exception as e:
         out["orgs_error"] = str(e)
+    try:
+        q = """
+        query($login:String!, $from:DateTime!, $to:DateTime!) {
+          user(login:$login) {
+            contributionsCollection(from:$from, to:$to) {
+              totalCommitContributions
+              totalPullRequestContributions
+              totalIssueContributions
+              restrictedContributionsCount
+            }
+          }
+        }
+        """
+        data = graphql(q, {
+            "login": USER,
+            "from": "2025-10-21T00:00:00Z",
+            "to": "2026-10-21T00:00:00Z",
+        })
+        out["contributions"] = data
+    except Exception as e:
+        out["contributions_error"] = str(e)
+
     with open("data/private-check.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
     print("private check:", out)
