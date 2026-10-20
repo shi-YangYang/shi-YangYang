@@ -199,7 +199,7 @@ def collect(points, values, hist):
         if star_dates:
             hist["star_dates"] = star_dates
     star_total = sum(r.get("stargazers_count", 0) for r in repos)
-    repo_dates = [r["created_at"][:10] for r in repos]
+    repo_dates = [r["created_at"][:10] for r in repos if not r.get("private")]
 
     for d in points:
         iso = d.isoformat()
