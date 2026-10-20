@@ -92,6 +92,59 @@ def fetch_repos():
     return repos
 
 
+def graphql(url, query, variables):
+    body = json.dumps({"query": query, "variables": variables}).encode()
+    req = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "Authorization": f"Bearer {TOKEN}",
+            "Content-Type": "application/json",
+            "User-Agent": UA,
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
+
+
+def fetch_star_dates_graphql(repos):
+    if not TOKEN:
+        return []
+    q = """
+    query($owner:String!, $name:String!, $cursor:String) {
+      repository(owner:$owner, name:$name) {
+        stargazers(first:100, after:$cursor, orderBy:{field:STARRED_AT, direction:ASC}) {
+          edges { starredAt }
+          pageInfo { hasNextPage endCursor }
+        }
+      }
+    }
+    """
+    dates = []
+    for repo in repos:
+        if not repo.get("stargazers_count"):
+            continue
+        cursor = None
+        while True:
+            try:
+                data = graphql(
+                    f"{API}/graphql", q, {"owner": USER, "name": repo["name"], "cursor": cursor}
+                )
+                st = (((data or {}).get("data") or {}).get("repository") or {}).get("stargazers") or {}
+            except Exception as e:
+                print("graphql failed:", repo["name"], e)
+                return []
+            for e in st.get("edges", []):
+                if e.get("starredAt"):
+                    dates.append(e["starredAt"][:10])
+            pi = st.get("pageInfo") or {}
+            if not pi.get("hasNextPage"):
+                break
+            cursor = pi.get("endCursor")
+    return dates
+
+
 def fetch_star_dates(repos):
     dates = []
     for repo in repos:
@@ -131,7 +184,10 @@ def collect(points):
         print("repos failed:", e)
         return data
 
-    star_dates = fetch_star_dates(repos)
+    star_dates = fetch_star_dates_graphql(repos)
+    if not star_dates:
+        star_dates = fetch_star_dates(repos)
+    star_total = sum(r.get("stargazers_count", 0) for r in repos)
     repo_dates = [r["created_at"][:10] for r in repos if not r.get("fork")]
 
     for d in points:
@@ -143,8 +199,14 @@ def collect(points):
         except Exception as e:
             print("search failed for", iso, e)
             continue
+        if star_dates:
+            stars = sum(1 for x in star_dates if x < iso)
+        elif iso == points[-1].isoformat():
+            stars = star_total
+        else:
+            stars = None
         data[iso] = {
-            "stars": sum(1 for x in star_dates if x < iso),
+            "stars": stars,
             "commits": commits,
             "prs": prs,
             "issues": issues,
@@ -169,13 +231,14 @@ def render(points, values):
 
     rows = []
     for i, (key, label, color) in enumerate(SERIES):
-        vals = [values.get(p, {}).get(key, 0) for p in points]
-        cur = vals[-1] if vals else 0
-        first = vals[0] if vals else 0
+        vals = [values.get(p, {}).get(key) for p in points]
+        known = [v for v in vals if v is not None]
+        cur = known[-1] if known else 0
+        first = known[0] if known else 0
         delta = cur - first
         y0 = top + i * row_h
 
-        vmax = max(vals + [1])
+        vmax = max(known + [1])
         n = max(len(vals) - 1, 1)
 
         def px(j):
@@ -184,10 +247,19 @@ def render(points, values):
         def py(v):
             return y0 + sh - sh * (v / vmax)
 
-        pts = " ".join(f"{px(j):.1f},{py(v):.1f}" for j, v in enumerate(vals))
-        area = f"M {px(0):.1f},{y0 + sh} L " + " L ".join(
-            f"{px(j):.1f},{py(v):.1f}" for j, v in enumerate(vals)
-        ) + f" L {px(len(vals) - 1):.1f},{y0 + sh} Z"
+        seen = [(j, v) for j, v in enumerate(vals) if v is not None]
+        pts = " ".join(f"{px(j):.1f},{py(v):.1f}" for j, v in seen)
+        area = ""
+        if seen:
+            area = f"M {px(seen[0][0]):.1f},{y0 + sh} L " + " L ".join(
+                f"{px(j):.1f},{py(v):.1f}" for j, v in seen
+            ) + f" L {px(seen[-1][0]):.1f},{y0 + sh} Z"
+
+        delta_label = (
+            f"12 个月 +{fmt(delta)}"
+            if values.get(points[0], {}).get(key) is not None
+            else "自今日起记录"
+        )
 
         rows.append(
             f'<text x="{L}" y="{y0 + 8}" fill="#c9d1d9" font-size="12" '
@@ -195,10 +267,18 @@ def render(points, values):
             f'<text x="{L}" y="{y0 + 34}" fill="{color}" font-size="20" font-weight="700" '
             f'font-family="ui-monospace, SFMono-Regular, Menlo, monospace">{fmt(cur)}</text>'
             f'<text x="{L + 76}" y="{y0 + 34}" fill="#6e7681" font-size="10">'
-            f'12 个月 +{fmt(delta)}</text>'
+            f'{delta_label}</text>'
             f'<path d="{area}" fill="{color}" fill-opacity="0.12"/>'
-            f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="2" '
-            f'stroke-linejoin="round" stroke-linecap="round"/>'
+            + (
+                f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="2" '
+                f'stroke-linejoin="round" stroke-linecap="round"/>'
+                if len(seen) > 1
+                else (
+                    f'<circle cx="{px(seen[0][0]):.1f}" cy="{py(seen[0][1]):.1f}" r="3.5" fill="{color}"/>'
+                    if seen
+                    else ""
+                )
+            )
         )
 
     xlabels = (
@@ -239,7 +319,9 @@ def main():
         with open(HISTORY, "w", encoding="utf-8") as f:
             json.dump(history, f, ensure_ascii=False, indent=1, sort_keys=True)
 
-    render(points, values)
+    svg = render(points, values)
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(svg)
     print("wrote", OUT)
 
 
