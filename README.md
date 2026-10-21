@@ -34,9 +34,26 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" alt="LangGraph" />
+  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face" />
+  <img src="https://img.shields.io/badge/Whisper-412991?style=for-the-badge" alt="Whisper" />
+  <img src="https://img.shields.io/badge/MCP-6C5CE7?style=for-the-badge" alt="MCP" />
+</div>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge" alt="OpenAI" />
+  <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude" />
+  <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white" alt="DeepSeek" />
+  <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Gemini" />
+  <img src="https://img.shields.io/badge/Qwen-615CED?style=for-the-badge" alt="Qwen" />
+  <img src="https://img.shields.io/badge/GLM-3859FF?style=for-the-badge" alt="GLM" />
+  <img src="https://img.shields.io/badge/Kimi-171717?style=for-the-badge" alt="Kimi" />
+</div>
+
+<div align="center">
   <img src="https://img.shields.io/badge/Codex-000000?style=for-the-badge&logo=openai&logoColor=white" alt="Codex" />
-  <img src="https://img.shields.io/badge/OpenClaw-6C5CE7?style=for-the-badge" alt="OpenClaw" />
   <img src="https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/OpenClaw-6C5CE7?style=for-the-badge" alt="OpenClaw" />
   <img src="https://img.shields.io/badge/opencode-000000?style=for-the-badge" alt="opencode" />
   <img src="https://img.shields.io/badge/DeepSeek_Harness-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white" alt="DeepSeek Harness" />
   <img src="https://img.shields.io/badge/Hermes-7C3AED?style=for-the-badge" alt="Hermes" />
