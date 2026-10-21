@@ -28,7 +28,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,py,rust,kotlin,html,css,react,nextjs,vue,tailwind,nodejs,fastapi,electron,tauri,vite,pnpm,prisma,postgres,sqlite,mysql,redis,docker,nginx,githubactions,linux,pytorch,opencv&perline=14&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,py,rust,kotlin,html,css,react,nextjs,vue,tailwind,nodejs,fastapi,electron,tauri,vite,pnpm,prisma,postgres,sqlite,mysql,redis,docker,nginx,githubactions,linux&perline=13&theme=dark" alt="技术栈" />
   </a>
 </div>
 
