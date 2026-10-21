@@ -28,14 +28,13 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,py,rust,kotlin,html,css,react,nextjs,vue,tailwind,nodejs,fastapi,electron,tauri,vite,pnpm,prisma,postgres,sqlite,mysql,redis,docker,nginx,githubactions,git,github,linux,pytorch,opencv&perline=15&theme=dark" alt="技术栈" />
+    <img src="https://skillicons.dev/icons?i=ts,js,py,rust,kotlin,html,css,react,nextjs,vue,tailwind,nodejs,fastapi,electron,tauri,vite,pnpm,prisma,postgres,sqlite,mysql,redis,docker,nginx,githubactions,linux,pytorch,opencv&perline=14&theme=dark" alt="技术栈" />
   </a>
 </div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
   <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" alt="LangGraph" />
-  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face" />
   <img src="https://img.shields.io/badge/Whisper-412991?style=for-the-badge" alt="Whisper" />
   <img src="https://img.shields.io/badge/MCP-6C5CE7?style=for-the-badge" alt="MCP" />
 </div>
