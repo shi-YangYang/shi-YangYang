@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>TypeScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
-<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personla-site"><strong>personla-site</strong></a> <code>TypeScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
+<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>TypeScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
 </tr>
 <tr>
 <td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
