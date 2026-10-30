@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>TypeScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
-<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>TypeScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
+<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
 </tr>
 <tr>
 <td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td width="50%">🧭 <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备</td>
-<td width="50%">🖥️ <a href="https://github.com/shi-YangYang/dsh-desktop"><strong>dsh-desktop</strong></a> <code>JavaScript</code><br>DeepSeek Harness 的 Electron 桌面壳，双击即用、无需命令行</td>
+<td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 的全局 Token 用量看板：跨会话/子代理汇总、实时统计、历史趋势与模型级消耗追踪</td>
 </tr>
 <tr>
 <td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
