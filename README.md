@@ -93,11 +93,7 @@
 </tr>
 <tr>
 <td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
-<td width="50%">⚙️ <a href="https://github.com/shi-YangYang/Easy-OpenClaw"><strong>Easy-OpenClaw</strong></a> <code>Vue</code><br>基于 Electron + Vue 3 的 OpenClaw 图形化管理界面，无需记忆命令行</td>
-</tr>
-<tr>
 <td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
-<td width="50%"></td>
 </tr>
 </table>
 
