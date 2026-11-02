@@ -17,7 +17,7 @@
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**work-assistant-agent**（团队办公 Agent）+ **TapPilot**（手机操控 Agent）
+- 🔭 正在做：**dsh-token-dashboard**（DSH Token 用量看板）+ **work-assistant-agent**（团队办公 Agent）+ **TapPilot**（手机操控 Agent）
 - 🌱 正在学：全栈工程化 · Agent 应用
 - 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
