@@ -145,6 +145,7 @@
 </div>
 
 <div align="center">
+  <br>
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1500&color=34D399&center=true&width=460&lines=Thanks+for+visiting;%E4%BB%8E+0+%E5%88%B0+1%EF%BC%8C%E7%BB%A7%E7%BB%AD%E6%8A%98%E8%85%BE;See+you+in+the+next+commit" alt="Typing SVG" /></a>
 </div>
 
