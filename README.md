@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 的全局 Token 用量看板：跨会话/子代理汇总、实时统计、历史趋势与模型级消耗追踪</td>
-<td width="50%">🧩 <a href="https://github.com/shi-YangYang/awesome-dsh-plugin"><strong>awesome-dsh-plugin</strong></a> <code>JavaScript</code><br>DeepSeek Harness 插件精选列表，配套站点 awesome-dsh-plugin.com</td>
+<td width="50%"></td>
 </tr>
 </table>
 
