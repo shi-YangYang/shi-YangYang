@@ -62,6 +62,10 @@
 
 ## 🚀 项目
 
+共 **18** 个公开项目，按类型折叠，点击分类展开。
+
+<details open>
+<summary><b>🤖 AI / Agent</b>（8）</summary>
 <table>
 <tr>
 <td width="50%">💼 <a href="https://github.com/shi-YangYang/work-assistant-agent"><strong>work-assistant-agent</strong></a> <code>Python</code><br>让 AI Agent 融入团队日常工作：任务管理、日报周报、会议录音转写与智能纪要</td>
@@ -69,40 +73,62 @@
 </tr>
 <tr>
 <td width="50%">🐟 <a href="https://github.com/shi-YangYang/BigFatFish"><strong>BigFatFish</strong></a> <code>TypeScript</code><br>一条可以长期陪伴、积累记忆的 AI 鱼：桌面 / Web / QQ / B站 / 抖音多入口共用同一人格与记忆</td>
-<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
-</tr>
-<tr>
-<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
-<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
-</tr>
-<tr>
 <td width="50%">📡 <a href="https://github.com/shi-YangYang/AI-Frontier-Radar"><strong>AI-Frontier-Radar</strong></a> <code>TypeScript</code><br>本地优先的 AI 前沿消息雷达：聚合 X 账号、官方博客与 RSS，多渠道推送，内置本地 Web 控制台</td>
-<td width="50%">🗣️ <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>OpenCode 破甲：代码上下文补全 + 被拒自动修复 + 本地 Web UI，零依赖</td>
 </tr>
 <tr>
 <td width="50%">🔬 <a href="https://github.com/shi-YangYang/openlab"><strong>openlab</strong></a> <code>Python</code><br>开源科研 Agent 框架：文献挖掘、假设生成、实验设计与论文写作的全流程自动化</td>
-<td width="50%">🧠 <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于完整 MaleCNS 果蝇神经连接组的研究平台：脉冲神经网络训练、神经活动可视化与具身控制实验</td>
-</tr>
-<tr>
 <td width="50%">🧭 <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备</td>
+</tr>
+<tr>
 <td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 的全局 Token 用量看板：跨会话/子代理汇总、实时统计、历史趋势与模型级消耗追踪</td>
-</tr>
-<tr>
 <td width="50%">🧩 <a href="https://github.com/shi-YangYang/awesome-dsh-plugin"><strong>awesome-dsh-plugin</strong></a> <code>JavaScript</code><br>DeepSeek Harness 插件精选列表，配套站点 awesome-dsh-plugin.com</td>
-<td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
 </tr>
+</table>
+</details>
+
+<details>
+<summary><b>🛠 开发工具</b>（4）</summary>
+<table>
 <tr>
-<td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
+<td width="50%">🗣️ <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>OpenCode 破甲：代码上下文补全 + 被拒自动修复 + 本地 Web UI，零依赖</td>
 <td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
 </tr>
 <tr>
-<td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
+<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
+<td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
+</tr>
+</table>
+</details>
+
+<details>
+<summary><b>🌐 Web / 站点</b>（2）</summary>
+<table>
+<tr>
+<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
+<td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
+</tr>
+</table>
+</details>
+
+<details>
+<summary><b>🛡 基础设施</b>（2）</summary>
+<table>
+<tr>
+<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
 <td width="50%">🌀 <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem HR650X/HR630X 服务器风扇控制：多传感器读取温度与转速，自适应档位模拟（当前只读）</td>
 </tr>
 </table>
+</details>
 
----
-
+<details>
+<summary><b>🔬 科研 / 其他</b>（2）</summary>
+<table>
+<tr>
+<td width="50%">🧠 <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于完整 MaleCNS 果蝇神经连接组的研究平台：脉冲神经网络训练、神经活动可视化与具身控制实验</td>
+<td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
+</tr>
+</table>
+</details>
 ## 📊 GitHub 数据
 
 <div align="center">
