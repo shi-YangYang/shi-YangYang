@@ -17,7 +17,7 @@
 
 ## 🧑‍💻 关于我
 
-- 🔭 正在做：**dsh-token-dashboard**（DSH Token 用量看板）+ **work-assistant-agent**（团队办公 Agent）+ **TapPilot**（手机操控 Agent）
+- 🔭 正在做：**BigFatFish**（AI 陪伴应用）+ **dsh-token-dashboard**（DSH Token 用量看板）+ **work-assistant-agent**（团队办公 Agent）
 - 🌱 正在学：全栈工程化 · Agent 应用
 - 💬 专注：全栈开发 · LLM Agent（Python / TypeScript）
 - ⚡ 喜欢：读《毛选》、看纪录片、写小说
@@ -68,7 +68,7 @@
 <td width="50%">📱 <a href="https://github.com/shi-YangYang/TapPilot"><strong>TapPilot</strong></a> <code>TypeScript</code><br>电脑用 LLM 遥控 Android：读无障碍树而非截图，USB/WSS 双通道，MCP 可接任意 Agent</td>
 </tr>
 <tr>
-<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>TypeScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
+<td width="50%">🛠️ <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站：一个仓库装很多互不相干的小工具，每个工具一个文件夹独立使用</td>
 <td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
 </tr>
 <tr>
@@ -94,6 +94,14 @@
 <tr>
 <td width="50%">🎨 <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的 AI 界面设计 Skill：产品想法 → UI/UX 方案、页面设计图与交互式前端预览</td>
 <td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
+</tr>
+<tr>
+<td width="50%">🐟 <a href="https://github.com/shi-YangYang/BigFatFish"><strong>BigFatFish</strong></a> <code>TypeScript</code><br>一条可以长期陪伴、积累记忆的 AI 鱼：桌面 / Web / QQ / B站 / 抖音多入口共用同一人格与记忆</td>
+<td width="50%">🌀 <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem HR650X/HR630X 服务器风扇控制：多传感器读取温度与转速，自适应档位模拟（当前只读）</td>
+</tr>
+<tr>
+<td width="50%">🧩 <a href="https://github.com/shi-YangYang/awesome-dsh-plugin"><strong>awesome-dsh-plugin</strong></a> <code>JavaScript</code><br>DeepSeek Harness 插件精选列表，配套站点 awesome-dsh-plugin.com</td>
+<td width="50%"></td>
 </tr>
 </table>
 
