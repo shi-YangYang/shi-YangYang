@@ -62,10 +62,14 @@
 
 ## 🚀 项目
 
-共 **18** 个公开项目，按类型折叠，点击分类展开。
+共 **18** 个公开项目，按类型分组：
 
-<details open>
-<summary><b>🤖 AI / Agent</b>（8）</summary>
+<p align="center">
+  <a href="#ai-agent">🤖 AI / Agent</a> · <a href="#开发工具">🛠 开发工具</a> · <a href="#web-站点">🌐 Web / 站点</a> · <a href="#基础设施">🛡 基础设施</a> · <a href="#科研与其他">🔬 科研 / 其他</a>
+</p>
+
+### AI Agent
+
 <table>
 <tr>
 <td width="50%">💼 <a href="https://github.com/shi-YangYang/work-assistant-agent"><strong>work-assistant-agent</strong></a> <code>Python</code><br>让 AI Agent 融入团队日常工作：任务管理、日报周报、会议录音转写与智能纪要</td>
@@ -84,10 +88,9 @@
 <td width="50%">🧩 <a href="https://github.com/shi-YangYang/awesome-dsh-plugin"><strong>awesome-dsh-plugin</strong></a> <code>JavaScript</code><br>DeepSeek Harness 插件精选列表，配套站点 awesome-dsh-plugin.com</td>
 </tr>
 </table>
-</details>
 
-<details>
-<summary><b>🛠 开发工具</b>（4）</summary>
+### 开发工具
+
 <table>
 <tr>
 <td width="50%">🗣️ <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>OpenCode 破甲：代码上下文补全 + 被拒自动修复 + 本地 Web UI，零依赖</td>
@@ -98,37 +101,34 @@
 <td width="50%">🔗 <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展 + 本地中继，一键提取 Plus 直卡链接（Chrome/Edge）</td>
 </tr>
 </table>
-</details>
 
-<details>
-<summary><b>🌐 Web / 站点</b>（2）</summary>
+### Web 站点
+
 <table>
 <tr>
 <td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
 <td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
 </tr>
 </table>
-</details>
 
-<details>
-<summary><b>🛡 基础设施</b>（2）</summary>
+### 基础设施
+
 <table>
 <tr>
 <td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
 <td width="50%">🌀 <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem HR650X/HR630X 服务器风扇控制：多传感器读取温度与转速，自适应档位模拟（当前只读）</td>
 </tr>
 </table>
-</details>
 
-<details>
-<summary><b>🔬 科研 / 其他</b>（2）</summary>
+### 科研与其他
+
 <table>
 <tr>
 <td width="50%">🧠 <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于完整 MaleCNS 果蝇神经连接组的研究平台：脉冲神经网络训练、神经活动可视化与具身控制实验</td>
 <td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计：Python + MySQL 学生管理系统</td>
 </tr>
 </table>
-</details>
+
 ## 📊 GitHub 数据
 
 <div align="center">
