@@ -62,8 +62,6 @@
 
 ## 🚀 项目
 
-共 **18** 个公开项目，按类型分组：
-
 <p align="center">
   <a href="#ai-agent">🤖 AI / Agent</a> · <a href="#开发工具">🛠 开发工具</a> · <a href="#web-站点">🌐 Web / 站点</a> · <a href="#基础设施">🛡 基础设施</a> · <a href="#科研与其他">🔬 科研 / 其他</a>
 </p>
