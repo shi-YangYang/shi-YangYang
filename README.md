@@ -82,7 +82,7 @@
 <td width="50%">🧭 <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、匹配、申请跟踪与面试准备</td>
 </tr>
 <tr>
-<td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 的全局 Token 用量看板：跨会话/子代理汇总、实时统计、历史趋势与模型级消耗追踪</td>
+<td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 的全局用量看板：跨会话/子代理汇总 Token 消耗、费用与请求延迟，含历史趋势</td>
 <td width="50%"></td>
 </tr>
 </table>
@@ -104,7 +104,7 @@
 
 <table>
 <tr>
-<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>赛博绿 3D 个人站模板：毛玻璃 + 访客终端 + MDX 博客，Docker 一键自部署</td>
+<td width="50%">🌐 <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>自托管双语个人站：博客 + 终端 + 站内 LangGraph Agent，Next.js + FastAPI，单容器部署</td>
 <td width="50%">📘 <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区：Next.js + PostgreSQL + Redis 全栈，Docker 一键起</td>
 </tr>
 </table>
@@ -113,8 +113,8 @@
 
 <table>
 <tr>
-<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>团队版 Clash：Android 客户端 + 自托管运维面板，Actions 自动出包</td>
-<td width="50%">🌀 <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem HR650X/HR630X 服务器风扇控制：多传感器读取温度与转速，自适应档位模拟（当前只读）</td>
+<td width="50%">🛡️ <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>企业 VPN（团队版 Clash）：Tauri + Rust 桌面端、Android 客户端与 Go 运维面板，Actions 自动出包</td>
+<td width="50%">🌀 <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem HR650X/HR630X 温度监控与五级风扇控制：终端查看温度/转速，可切自动或手动档位（默认只读）</td>
 </tr>
 </table>
 
