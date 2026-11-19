@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td width="50%">📊 <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 用量看板：汇总跨会话与子代理的 Token 消耗、费用与请求延迟，并呈现历史趋势</td>
-<td width="50%"></td>
+<td width="50%">📐 <a href="https://github.com/shi-YangYang/agents-md"><strong>agents-md</strong></a><br>Agent 工程规范集合：以规格驱动开发约束项目全流程，并给出网页与前端组件的设计准则</td>
 </tr>
 </table>
 
