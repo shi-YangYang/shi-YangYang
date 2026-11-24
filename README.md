@@ -123,7 +123,11 @@
 <table>
 <tr>
 <td width="50%">🧠 <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于 MaleCNS 果蝇连接组的研究平台：训练脉冲神经网络，观察神经活动并开展具身控制实验</td>
+<td width="50%">🦾 <a href="https://github.com/shi-YangYang/malecns-x2"><strong>malecns-x2</strong></a><br>基于智元 X2 机器人开发的果蝇模型，延续 MaleCNS 连接组研究</td>
+</tr>
+<tr>
 <td width="50%">🎓 <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计项目：基于 Python 与 MySQL 的学生管理系统</td>
+<td width="50%"></td>
 </tr>
 </table>
 
