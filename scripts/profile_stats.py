@@ -308,7 +308,7 @@ def fmt(n):
     return f"{n:,}"
 
 
-def render(points, values, private_repos=None):
+def render(points, values):
     W, H = 860, 420
     L = 36
     top = 100
@@ -370,8 +370,6 @@ def render(points, values, private_repos=None):
         )
 
     subtitle = "近 12 个月 · 累计值 · 每小时同步"
-    if private_repos:
-        subtitle = f"近 12 个月 · 累计值 · 含 {private_repos} 个私有仓库 · 每小时同步"
 
     xlabels = (
         f'<text x="{sx0}" y="{top + 5 * row_h + 8}" fill="#6e7681" font-size="10">'
@@ -460,7 +458,7 @@ def main():
     points = sorted(p for p in values if p >= start.isoformat())
     if today not in points:
         points.append(today)
-    svg = render(points, values, history["meta"].get("private_repos"))
+    svg = render(points, values)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
     print("wrote", OUT)
