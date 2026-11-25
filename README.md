@@ -59,20 +59,20 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/briefcase-business.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/work-assistant-agent"><strong>work-assistant-agent</strong></a> <code>Python</code><br>把 AI Agent 带进团队日常：管理任务与日报周报，将会议录音转写并整理成结构化纪要</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/smartphone.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/TapPilot"><strong>TapPilot</strong></a> <code>TypeScript</code><br>用 LLM 从电脑操控 Android：读取无障碍树理解界面，USB 与 WSS 双通道，可通过 MCP 接入任意 Agent</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/python/3776AB"><img src="https://cdn.simpleicons.org/python/3776AB" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/work-assistant-agent"><strong>work-assistant-agent</strong></a> <code>Python</code><br>把 AI Agent 带进团队日常：管理任务与日报周报，将会议录音转写并整理成结构化纪要</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/android/3DDC84"><img src="https://cdn.simpleicons.org/android/3DDC84" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/TapPilot"><strong>TapPilot</strong></a> <code>TypeScript</code><br>用 LLM 从电脑操控 Android：读取无障碍树理解界面，USB 与 WSS 双通道，可通过 MCP 接入任意 Agent</td>
 </tr>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/fish.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/BigFatFish"><strong>BigFatFish</strong></a> <code>TypeScript</code><br>可长期陪伴、持续积累记忆的 AI 伙伴：覆盖桌面与 Web，也能接入 QQ、B 站与抖音，各入口共享人格与记忆</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/radar.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/AI-Frontier-Radar"><strong>AI-Frontier-Radar</strong></a> <code>TypeScript</code><br>本地优先的 AI 前沿资讯雷达：聚合 X 账号、官方博客与 RSS，支持多渠道推送并内置本地控制台</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/deepseek/5786FE"><img src="https://cdn.simpleicons.org/deepseek/5786FE" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/BigFatFish"><strong>BigFatFish</strong></a> <code>TypeScript</code><br>可长期陪伴、持续积累记忆的 AI 伙伴：覆盖桌面与 Web，也能接入 QQ、B 站与抖音，各入口共享人格与记忆</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/typescript/3178C6"><img src="https://cdn.simpleicons.org/typescript/3178C6" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/AI-Frontier-Radar"><strong>AI-Frontier-Radar</strong></a> <code>TypeScript</code><br>本地优先的 AI 前沿资讯雷达：聚合 X 账号、官方博客与 RSS，支持多渠道推送并内置本地控制台</td>
 </tr>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/flask-conical.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/openlab"><strong>openlab</strong></a> <code>Python</code><br>开源科研 Agent 框架：把文献挖掘、假设生成、实验设计与论文写作连成一条完整流程</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/compass.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、人岗匹配、投递跟踪与面试准备</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/python/3776AB"><img src="https://cdn.simpleicons.org/python/3776AB" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/openlab"><strong>openlab</strong></a> <code>Python</code><br>开源科研 Agent 框架：把文献挖掘、假设生成、实验设计与论文写作连成一条完整流程</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/typescript/3178C6"><img src="https://cdn.simpleicons.org/typescript/3178C6" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/jobpilot-agent"><strong>jobpilot-agent</strong></a> <code>TypeScript</code><br>可解释的 AI 求职助手：岗位分析、人岗匹配、投递跟踪与面试准备</td>
 </tr>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/gauge.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 用量看板：汇总跨会话与子代理的 Token 消耗、费用与请求延迟，并呈现历史趋势</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/file-text.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/agents-md"><strong>agents-md</strong></a><br>Agent 工程规范集合：以规格驱动开发约束项目全流程，并给出网页与前端组件的设计准则</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/deepseek/5786FE"><img src="https://cdn.simpleicons.org/deepseek/5786FE" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/dsh-token-dashboard"><strong>dsh-token-dashboard</strong></a> <code>TypeScript</code><br>DeepSeek Harness 用量看板：汇总跨会话与子代理的 Token 消耗、费用与请求延迟，并呈现历史趋势</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/markdown/8B949E"><img src="https://cdn.simpleicons.org/markdown/8B949E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/agents-md"><strong>agents-md</strong></a><br>Agent 工程规范集合：以规格驱动开发约束项目全流程，并给出网页与前端组件的设计准则</td>
 </tr>
 </table>
 
@@ -80,12 +80,12 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/terminal.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>为 OpenCode 补足代码上下文、拆分多阶段流程，并自动修复被拒请求，内置本地 Web UI</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/palette.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的界面设计 Skill：将产品想法转化为 UI/UX 方案、页面设计图与可交互的前端预览</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/opencode/8B949E"><img src="https://cdn.simpleicons.org/opencode/8B949E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/opencode-speak-freely"><strong>opencode-speak-freely</strong></a> <code>Python</code><br>为 OpenCode 补足代码上下文、拆分多阶段流程，并自动修复被拒请求，内置本地 Web UI</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/figma/F24E1E"><img src="https://cdn.simpleicons.org/figma/F24E1E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/ai-interface-studio"><strong>ai-interface-studio</strong></a><br>面向 Codex 的界面设计 Skill：将产品想法转化为 UI/UX 方案、页面设计图与可交互的前端预览</td>
 </tr>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/wrench.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站点合集：每个小工具拥有独立的目录、依赖与构建，互不影响</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/puzzle.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展配合本地中继，一键提取 Plus 直卡链接，支持 Chrome 与 Edge</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/javascript/F7DF1E"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/utility-site"><strong>utility-site</strong></a> <code>JavaScript</code><br>工具站点合集：每个小工具拥有独立的目录、依赖与构建，互不影响</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/googlechrome/4285F4"><img src="https://cdn.simpleicons.org/googlechrome/4285F4" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/plus-extractor"><strong>plus-extractor</strong></a> <code>JavaScript</code><br>浏览器扩展配合本地中继，一键提取 Plus 直卡链接，支持 Chrome 与 Edge</td>
 </tr>
 </table>
 
@@ -93,8 +93,8 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/globe.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>自托管双语个人站：包含博客、终端与站内 Agent，基于 Next.js 与 FastAPI，以单个容器部署</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/book-open.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区全栈实现：Next.js 搭配 PostgreSQL 与 Redis，Docker 一键启动</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/nextdotjs/8B949E"><img src="https://cdn.simpleicons.org/nextdotjs/8B949E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/personal-site"><strong>personal-site</strong></a> <code>JavaScript</code><br>自托管双语个人站：包含博客、终端与站内 Agent，基于 Next.js 与 FastAPI，以单个容器部署</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/postgresql/4169E1"><img src="https://cdn.simpleicons.org/postgresql/4169E1" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/LittleBlueBook-Web"><strong>LittleBlueBook-Web</strong></a> <code>TypeScript</code><br>「小蓝书」社区全栈实现：Next.js 搭配 PostgreSQL 与 Redis，Docker 一键启动</td>
 </tr>
 </table>
 
@@ -102,8 +102,8 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/shield.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>企业 VPN 客户端与运维面板：桌面端采用 Tauri 与 Rust，配套 Android 客户端与 Go 服务端，自动构建出包</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/fan.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem 服务器的温度监控与五级风扇控制：终端查看温度与转速，可在自动与手动档位间切换</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/tauri/24C8D8"><img src="https://cdn.simpleicons.org/tauri/24C8D8" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/VergeN"><strong>VergeN</strong></a> <code>Rust</code><br>企业 VPN 客户端与运维面板：桌面端采用 Tauri 与 Rust，配套 Android 客户端与 Go 服务端，自动构建出包</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/lenovo/E2231A"><img src="https://cdn.simpleicons.org/lenovo/E2231A" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/HRX-FanControl"><strong>HRX-FanControl</strong></a> <code>Python</code><br>联想 ThinkSystem 服务器的温度监控与五级风扇控制：终端查看温度与转速，可在自动与手动档位间切换</td>
 </tr>
 </table>
 
@@ -111,11 +111,11 @@
 
 <table>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/brain.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于 MaleCNS 果蝇连接组的研究平台：训练脉冲神经网络，观察神经活动并开展具身控制实验</td>
-<td width="50%"><img src="https://api.iconify.design/lucide/bot.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/malecns-x2"><strong>malecns-x2</strong></a><br>基于智元 X2 机器人开发的果蝇模型，延续 MaleCNS 连接组研究</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/pytorch/EE4C2C"><img src="https://cdn.simpleicons.org/pytorch/EE4C2C" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/malecns_lab"><strong>malecns_lab</strong></a> <code>Python</code><br>基于 MaleCNS 果蝇连接组的研究平台：训练脉冲神经网络，观察神经活动并开展具身控制实验</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/ros/8B949E"><img src="https://cdn.simpleicons.org/ros/8B949E" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/malecns-x2"><strong>malecns-x2</strong></a><br>基于智元 X2 机器人开发的果蝇模型，延续 MaleCNS 连接组研究</td>
 </tr>
 <tr>
-<td width="50%"><img src="https://api.iconify.design/lucide/graduation-cap.svg?color=%2334d399" width="24" height="24" align="middle" alt=""> <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计项目：基于 Python 与 MySQL 的学生管理系统</td>
+<td width="50%"><picture><source srcset="https://cdn.simpleicons.org/python/3776AB"><img src="https://cdn.simpleicons.org/python/3776AB" width="16" height="16" align="right" alt=""></picture> <a href="https://github.com/shi-YangYang/Student-System"><strong>Student-System</strong></a> <code>Python</code><br>课程设计项目：基于 Python 与 MySQL 的学生管理系统</td>
 <td width="50%"></td>
 </tr>
 </table>
