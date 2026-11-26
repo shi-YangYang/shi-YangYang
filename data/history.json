@@ -2,7 +2,7 @@
  "meta": {
   "counts_v3": true,
   "private_repos": 2,
-  "star_try": "2026-11-24T05"
+  "star_try": "2026-11-26T03"
  },
  "points": {
   "2025-12-01": {
@@ -73,273 +73,280 @@
    "issues": 1,
    "prs": 2,
    "repos": 11,
-   "stars": 97
+   "stars": 96
   },
   "2026-10-01": {
    "commits": 646,
    "issues": 1,
    "prs": 82,
    "repos": 15,
-   "stars": 114
+   "stars": 113
   },
   "2026-10-20": {
    "commits": 1048,
    "issues": 1,
    "prs": 121,
    "repos": 17,
-   "stars": 130
+   "stars": 129
   },
   "2026-10-21": {
    "commits": 1098,
    "issues": 1,
    "prs": 127,
    "repos": 18,
-   "stars": 130
+   "stars": 129
   },
   "2026-10-22": {
    "commits": 1111,
    "issues": 1,
    "prs": 128,
    "repos": 18,
-   "stars": 131
+   "stars": 130
   },
   "2026-10-23": {
    "commits": 1133,
    "issues": 1,
    "prs": 133,
    "repos": 18,
-   "stars": 132
+   "stars": 131
   },
   "2026-10-24": {
    "commits": 1139,
    "issues": 1,
    "prs": 133,
    "repos": 18,
-   "stars": 132
+   "stars": 131
   },
   "2026-10-25": {
    "commits": 1142,
    "issues": 1,
    "prs": 135,
    "repos": 18,
-   "stars": 132
+   "stars": 131
   },
   "2026-10-26": {
    "commits": 1155,
    "issues": 1,
    "prs": 135,
    "repos": 18,
-   "stars": 132
+   "stars": 131
   },
   "2026-10-27": {
    "commits": 1167,
    "issues": 1,
    "prs": 137,
    "repos": 18,
-   "stars": 133
+   "stars": 132
   },
   "2026-10-28": {
    "commits": 1171,
    "issues": 1,
    "prs": 137,
    "repos": 19,
-   "stars": 133
+   "stars": 132
   },
   "2026-10-29": {
    "commits": 1204,
    "issues": 1,
    "prs": 137,
    "repos": 19,
-   "stars": 133
+   "stars": 132
   },
   "2026-10-30": {
    "commits": 1193,
    "issues": 1,
    "prs": 137,
    "repos": 17,
-   "stars": 133
+   "stars": 132
   },
   "2026-10-31": {
    "commits": 1226,
    "issues": 1,
    "prs": 143,
    "repos": 17,
-   "stars": 133
+   "stars": 132
   },
   "2026-11-01": {
    "commits": 1226,
    "issues": 1,
    "prs": 143,
    "repos": 17,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-02": {
    "commits": 1237,
    "issues": 1,
    "prs": 143,
    "repos": 17,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-03": {
    "commits": 1264,
    "issues": 1,
    "prs": 149,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-04": {
    "commits": 1275,
    "issues": 1,
    "prs": 152,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-05": {
    "commits": 1290,
    "issues": 1,
    "prs": 152,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-06": {
    "commits": 1291,
    "issues": 1,
    "prs": 153,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-07": {
    "commits": 1294,
    "issues": 1,
    "prs": 154,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-08": {
    "commits": 1294,
    "issues": 1,
    "prs": 154,
    "repos": 18,
-   "stars": 134
+   "stars": 133
   },
   "2026-11-09": {
    "commits": 1355,
    "issues": 1,
    "prs": 154,
    "repos": 18,
-   "stars": 135
+   "stars": 134
   },
   "2026-11-10": {
    "commits": 1371,
    "issues": 1,
    "prs": 160,
    "repos": 18,
-   "stars": 135
+   "stars": 134
   },
   "2026-11-11": {
    "commits": 1380,
    "issues": 1,
    "prs": 163,
    "repos": 18,
-   "stars": 135
+   "stars": 134
   },
   "2026-11-12": {
    "commits": 1404,
    "issues": 1,
    "prs": 165,
    "repos": 18,
-   "stars": 135
+   "stars": 134
   },
   "2026-11-13": {
    "commits": 1417,
    "issues": 1,
    "prs": 170,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-14": {
    "commits": 1440,
    "issues": 1,
    "prs": 176,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-15": {
    "commits": 1440,
    "issues": 1,
    "prs": 176,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-16": {
    "commits": 1440,
    "issues": 1,
    "prs": 176,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-17": {
    "commits": 1446,
    "issues": 1,
    "prs": 179,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-18": {
    "commits": 1461,
    "issues": 1,
    "prs": 185,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-19": {
    "commits": 1461,
    "issues": 1,
    "prs": 185,
    "repos": 18,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-20": {
    "commits": 1482,
    "issues": 1,
    "prs": 187,
    "repos": 19,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-21": {
    "commits": 1484,
    "issues": 1,
    "prs": 187,
    "repos": 19,
-   "stars": 136
+   "stars": 135
   },
   "2026-11-22": {
    "commits": 1484,
    "issues": 1,
    "prs": 187,
    "repos": 19,
-   "stars": 137
+   "stars": 136
   },
   "2026-11-23": {
    "commits": 1495,
    "issues": 1,
    "prs": 187,
    "repos": 19,
-   "stars": 137
+   "stars": 136
   },
   "2026-11-24": {
    "commits": 1497,
    "issues": 1,
    "prs": 188,
    "repos": 20,
-   "stars": 138
+   "stars": 137
   },
   "2026-11-25": {
    "commits": 1506,
    "issues": 1,
    "prs": 190,
    "repos": 20,
-   "stars": 139
+   "stars": 138
+  },
+  "2026-11-26": {
+   "commits": 1521,
+   "issues": 1,
+   "prs": 192,
+   "repos": 20,
+   "stars": 138
   }
  },
  "star_dates": [
@@ -387,7 +394,6 @@
   "2026-08-03",
   "2026-08-03",
   "2026-08-03",
-  "2026-08-04",
   "2026-08-04",
   "2026-08-04",
   "2026-08-04",
